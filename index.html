@@ -148,10 +148,23 @@
 
   .hero h1 em { font-style: italic; color: var(--purple); }
 
+  .hero-for {
+    font-size: 14px; font-weight: 700; letter-spacing: 0.5px;
+    color: var(--purple); text-transform: uppercase;
+    margin-bottom: 16px;
+    animation: fadeUp 0.7s 0.15s ease both;
+  }
+
   .hero-sub {
     font-size: 18px; font-weight: 400; color: var(--ink-80);
     line-height: 1.7; max-width: 580px; margin-bottom: 52px;
     animation: fadeUp 0.7s 0.2s ease both;
+  }
+
+  .hero-pricing-hint {
+    margin-top: 14px; font-size: 13px; color: var(--ink-40);
+    font-weight: 500; letter-spacing: 0.2px;
+    animation: fadeUp 0.7s 0.35s ease both;
   }
 
   .hero-chips {
@@ -908,16 +921,18 @@
     Coming Soon — iOS & Android
   </div>
 
-  <h1>Stop guessing.<br>Start investing with<br><em>real conviction.</em></h1>
+  <h1>Stop guessing.<br>Start analyzing with<br><em>real conviction.</em></h1>
+
+  <p class="hero-for">For self-directed investors who want to think like Buffett — not trade like a hedge fund.</p>
 
   <p class="hero-sub">
-    Moatly is the only investing platform that combines rigorous fundamental analysis, AI that knows your portfolio, and an always-on value investing tutor — so you know exactly what a business is worth, and build the conviction to act on it.
+    Moatly is the only investing app built around the 4M framework — Meaning, MOAT, Management, and Margin of Safety. Live fundamentals, three independent valuations, and AI that knows your portfolio. Know exactly what a business is worth. Build the conviction to act on it.
   </p>
 
   <div class="hero-chips">
     <div class="hero-chip">✦ AI That Knows Your Portfolio</div>
     <div class="hero-chip">🏰 Meaning, Moat, Management & Margin of Safety</div>
-    <div class="hero-chip">📊 Your Exact Buy Price</div>
+    <div class="hero-chip">📊 Your Calculated Value Price</div>
     <div class="hero-chip">🎓 MoatlyAI Tutor</div>
     <div class="hero-chip">💡 Daily Insights</div>
   </div>
@@ -930,26 +945,27 @@
   <div class="hero-social-proof">
     <span>Be among the first to get access</span>
   </div>
+  <div class="hero-pricing-hint">Free 30-day trial &nbsp;·&nbsp; No credit card required &nbsp;·&nbsp; Cancel anytime</div>
 </section>
 
 <!-- STATS -->
 <div class="stats-section fade-up">
   <div class="stats-inner">
     <div class="stat-item">
-      <div class="stat-num">4M</div>
-      <div class="stat-label">Framework Every Pro Uses</div>
+      <div class="stat-num">85%</div>
+      <div class="stat-label">of retail investors underperform the market — Moatly is built to change that</div>
     </div>
     <div class="stat-item">
       <div class="stat-num">10min</div>
-      <div class="stat-label">vs. 4 Hours of Manual Research</div>
+      <div class="stat-label">from ticker search to full conviction — no spreadsheets, no guesswork</div>
     </div>
     <div class="stat-item">
-      <div class="stat-num">3</div>
-      <div class="stat-label">Valuation Methods Per Stock</div>
+      <div class="stat-num">3x</div>
+      <div class="stat-label">independent valuations cross-checked to estimate intrinsic value</div>
     </div>
     <div class="stat-item">
-      <div class="stat-num">∞</div>
-      <div class="stat-label">Questions MoatlyAI Answers</div>
+      <div class="stat-num">$0</div>
+      <div class="stat-label">to start — 30-day free trial, no credit card, cancel anytime</div>
     </div>
   </div>
 </div>
@@ -989,7 +1005,7 @@
         <div class="m-number">4</div>
         <div class="m-icon">🎯</div>
         <div class="m-title">Margin of Safety</div>
-        <p class="m-desc">Is today's price meaningfully below what this business is actually worth? Moatly calculates your exact buy price using three independent valuation methods. Know your price. Wait for your price. The margin of safety is your protection when you're wrong — even about a great business.</p>
+        <p class="m-desc">Is today's price meaningfully below what this business is actually worth? Moatly calculates your fair value estimate using three independent valuation methods. Know the math. Make your own call. The margin of safety is your protection when you're wrong — even about a great business.</p>
         <div class="m-metric">💰 Three Independent Valuation Methods</div>
       </div>
     </div>
@@ -1016,8 +1032,8 @@
           <div class="feature-item">
             <div class="feature-icon">🧮</div>
             <div>
-              <h3>Three Valuation Methods, One Buy Price</h3>
-              <p>Intrinsic Value, 10-CAP, and Payback Time give you three independent buy prices. Adjust any input and watch every number update in real time.</p>
+              <h3>Three Valuation Methods, One Fair Value Estimate</h3>
+              <p>Intrinsic Value, 10-CAP, and Payback Time give you three independent value estimates. Adjust any input and watch every number update in real time.</p>
             </div>
           </div>
           <div class="feature-item">
@@ -1030,8 +1046,8 @@
           <div class="feature-item">
             <div class="feature-icon">⭐</div>
             <div>
-              <h3>Watchlist & Buy Zone Alerts</h3>
-              <p>Track every business you care about. Get alerted the moment a stock enters your buy zone — with MoatlyAI context on why the opportunity exists.</p>
+              <h3>Watchlist & Value Zone Alerts</h3>
+              <p>Track every business you care about. Get alerted the moment a stock enters your value zone — with MoatlyAI context on why the opportunity exists.</p>
             </div>
           </div>
         </div>
@@ -1085,7 +1101,7 @@
             </div>
             <div class="phone-buy-price">
               <div>
-                <div class="phone-buy-label">MOS Buy Price</div>
+                <div class="phone-buy-label">MOS Value Price</div>
                 <div style="font-size:10px;color:rgba(255,255,255,0.4);margin-top:2px">50% below intrinsic value</div>
               </div>
               <div class="phone-buy-val">$199.05</div>
@@ -1133,7 +1149,7 @@
           <div class="ai-feature-item">
             <div class="ai-feature-num">3</div>
             <div>
-              <div class="ai-feature-title">Valuation Context — At That Buy Price</div>
+              <div class="ai-feature-title">Valuation Context — At That Value Price</div>
               <div class="ai-feature-desc">Explains what you must believe for the intrinsic value to hold, and flags the specific risks that could erode it. Ask about any stock and get an answer grounded in Moatly's actual valuation data.</div>
             </div>
           </div>
@@ -1167,7 +1183,7 @@
             </div>
             <div class="ai-insight-row">
               <div class="ai-insight-label">VALUATION SIGNAL</div>
-              <div class="ai-insight-text">At $163.14, the stock trades $36 below the MOS buy price and $235 below intrinsic value — a rare entry point into a premium brand the market is temporarily discounting on short-term concerns.</div>
+              <div class="ai-insight-text">At $163.14, the stock trades $36 below the MOS value price and $235 below intrinsic value — a potential entry point into a premium brand the market is temporarily discounting on short-term concerns.</div>
             </div>
             <div class="ai-verdict">
               <div>
@@ -1306,7 +1322,7 @@
     <div class="daily-cards">
       <div class="daily-card">
         <div class="daily-card-icon">🏰</div>
-        <div class="daily-card-text">What's the difference between a wide moat and a narrow moat — and why does it change your buy price?</div>
+        <div class="daily-card-text">What's the difference between a wide moat and a narrow moat — and why does it change your value estimate?</div>
         <div class="daily-card-arrow">→</div>
       </div>
       <div class="daily-card">
@@ -1330,7 +1346,7 @@
     <div class="principles-list">
       <div class="principle-item">
         <h4>Price vs. Value — Always</h4>
-        <p>Price is what you pay. Value is what you get. Moatly calculates what a business is actually worth — not what the market says today. Your buy price is your edge.</p>
+        <p>Price is what you pay. Value is what you get. Moatly calculates what a business is actually worth — not what the market says today. Your value estimate is your edge.</p>
       </div>
       <div class="principle-item">
         <h4>Know What You Own</h4>
@@ -1374,8 +1390,8 @@
       <div class="step-card" style="background:var(--white);">
         <div class="step-num">Step 04</div>
         <div class="step-icon" style="background:rgba(45,106,79,0.08)">✅</div>
-        <h3>Invest with real conviction</h3>
-        <p>Know your exact buy price. Know why you're buying. Know what to monitor. Add to your watchlist and get alerted the moment the opportunity arrives. No guessing. Just conviction.</p>
+        <h3>Analyze with real conviction</h3>
+        <p>Know your calculated value price. Know why you're interested. Know what to monitor. Add to your watchlist and get alerted the moment the opportunity arrives. No guessing. Just conviction.</p>
       </div>
     </div>
   </div>
@@ -1418,7 +1434,7 @@
           <div class="pricing-divider"></div>
           <div class="pricing-section-label">Tools</div>
           <div class="pricing-feature"><span class="pricing-check">✓</span> Unlimited watchlist stocks</div>
-          <div class="pricing-feature"><span class="pricing-check">✓</span> Buy zone notifications</div>
+          <div class="pricing-feature"><span class="pricing-check">✓</span> Value zone notifications</div>
           <div class="pricing-feature"><span class="pricing-check">✓</span> Earnings calendar for watchlist stocks</div>
           <div class="pricing-feature"><span class="pricing-check">✓</span> Dashboard with top opportunities</div>
         </div>
