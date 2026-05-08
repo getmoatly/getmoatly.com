@@ -1,0 +1,1601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Moatly — The Smartest Way to Invest in Great Businesses</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink: #0A0D12;
+    --ink-80: #0A0D12CC;
+    --ink-40: #0A0D1266;
+    --ink-10: #0A0D121A;
+    --paper: #F8F5F0;
+    --paper-dark: #EDE9E2;
+    --night: #080C18;
+    --night-2: #0E1525;
+    --night-3: #141D30;
+    --gold: #C8A96E;
+    --gold-light: #DEC28A;
+    --green: #2D6A4F;
+    --green-bright: #40916C;
+    --green-glow: #52B788;
+    --red: #BC4749;
+    --purple: #5b4ec7;
+    --purple-light: #7b70d4;
+    --purple-pale: rgba(91,78,199,0.10);
+    --white: #FFFFFF;
+    --radius: 16px;
+    --radius-sm: 10px;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Syne', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ─── NAV ─── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 20px 40px;
+    display: flex; align-items: center; justify-content: space-between;
+    background: rgba(248, 245, 240, 0.88);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(10, 13, 18, 0.06);
+  }
+
+  .nav-logo {
+    display: flex; align-items: center; gap: 10px;
+    font-size: 20px; font-weight: 700; letter-spacing: -0.5px;
+    color: var(--ink); text-decoration: none;
+  }
+
+  .nav-logo-icon {
+    width: 32px; height: 32px;
+    background: var(--purple); border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 4px 14px rgba(91,78,199,0.35);
+  }
+
+  .nav-logo-icon svg { width: 18px; height: 18px; }
+
+  .nav-links {
+    display: flex; align-items: center; gap: 32px;
+  }
+
+  .nav-link {
+    font-size: 14px; font-weight: 600; color: var(--ink-80);
+    text-decoration: none; transition: color 0.2s;
+  }
+  .nav-link:hover { color: var(--purple); }
+
+  .nav-cta {
+    background: var(--purple); color: var(--white);
+    border: none; padding: 10px 22px; border-radius: 100px;
+    font-family: 'Syne', sans-serif; font-size: 14px; font-weight: 600;
+    cursor: pointer; letter-spacing: 0.2px;
+    transition: transform 0.2s, background 0.2s, box-shadow 0.2s;
+    text-decoration: none; box-shadow: 0 4px 16px rgba(91,78,199,0.3);
+  }
+  .nav-cta:hover { background: var(--purple-light); transform: translateY(-1px); box-shadow: 0 6px 20px rgba(91,78,199,0.4); }
+
+  /* ─── HERO ─── */
+  .hero {
+    min-height: 100vh;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    text-align: center; padding: 120px 40px 80px;
+    position: relative; overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 900px 600px at 50% 20%, rgba(91,78,199,0.09) 0%, transparent 65%),
+      radial-gradient(ellipse 500px 400px at 80% 70%, rgba(91,78,199,0.05) 0%, transparent 60%),
+      radial-gradient(ellipse 400px 300px at 10% 80%, rgba(200,169,110,0.05) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .hero-grid {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(91,78,199,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(91,78,199,0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse 80% 60% at 50% 30%, black 0%, transparent 100%);
+    -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 30%, black 0%, transparent 100%);
+    pointer-events: none;
+  }
+
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--white); border: 1px solid rgba(91,78,199,0.2);
+    border-radius: 100px; padding: 6px 16px;
+    font-size: 13px; font-weight: 600; color: var(--purple);
+    margin-bottom: 36px; animation: fadeUp 0.6s ease both;
+    box-shadow: 0 2px 16px rgba(91,78,199,0.10);
+  }
+
+  .badge-dot {
+    width: 7px; height: 7px; background: var(--purple);
+    border-radius: 50%; animation: pulse 2s ease infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.3); }
+  }
+
+  .hero h1 {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(52px, 8vw, 96px); font-weight: 300;
+    line-height: 1.0; letter-spacing: -2px; color: var(--ink);
+    max-width: 900px; margin-bottom: 28px;
+    animation: fadeUp 0.7s 0.1s ease both;
+  }
+
+  .hero h1 em { font-style: italic; color: var(--purple); }
+
+  .hero-sub {
+    font-size: 18px; font-weight: 400; color: var(--ink-80);
+    line-height: 1.7; max-width: 580px; margin-bottom: 52px;
+    animation: fadeUp 0.7s 0.2s ease both;
+  }
+
+  .hero-chips {
+    display: flex; gap: 10px; flex-wrap: wrap; justify-content: center;
+    margin-bottom: 40px;
+    animation: fadeUp 0.7s 0.25s ease both;
+  }
+
+  .hero-chip {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(91,78,199,0.08);
+    border: 1px solid rgba(91,78,199,0.15);
+    border-radius: 100px; padding: 6px 14px;
+    font-size: 13px; font-weight: 600; color: var(--purple);
+  }
+
+  .hero-form {
+    display: flex; gap: 10px;
+    animation: fadeUp 0.7s 0.3s ease both;
+    flex-wrap: wrap; justify-content: center;
+  }
+
+  .hero-input {
+    padding: 14px 20px; border: 1.5px solid var(--paper-dark);
+    border-radius: 100px; background: var(--white);
+    font-family: 'Syne', sans-serif; font-size: 15px; color: var(--ink);
+    width: 280px; outline: none; transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .hero-input::placeholder { color: var(--ink-40); }
+  .hero-input:focus { border-color: var(--purple); box-shadow: 0 0 0 4px rgba(91,78,199,0.10); }
+
+  .hero-btn {
+    padding: 14px 28px; background: var(--purple); color: var(--white);
+    border: none; border-radius: 100px; font-family: 'Syne', sans-serif;
+    font-size: 15px; font-weight: 700; cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+    white-space: nowrap; box-shadow: 0 6px 20px rgba(91,78,199,0.3);
+  }
+  .hero-btn:hover { background: var(--purple-light); transform: translateY(-2px); box-shadow: 0 10px 28px rgba(91,78,199,0.4); }
+
+  .hero-social-proof {
+    margin-top: 56px; display: flex; align-items: center; gap: 14px;
+    font-size: 13px; color: var(--ink-40); font-weight: 500;
+    animation: fadeUp 0.7s 0.4s ease both;
+  }
+
+  .avatar-stack { display: flex; }
+  .avatar {
+    width: 28px; height: 28px; border-radius: 50%;
+    border: 2px solid var(--paper); margin-left: -8px;
+    font-size: 11px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center; color: var(--white);
+  }
+  .avatar:first-child { margin-left: 0; }
+  .av1 { background: var(--purple); }
+  .av2 { background: #7b70d4; }
+  .av3 { background: var(--green); }
+  .av4 { background: #C8A96E; }
+  .av5 { background: #52758A; }
+
+  /* ─── SHARED ─── */
+  .section-label {
+    font-size: 12px; font-weight: 700; letter-spacing: 2px;
+    text-transform: uppercase; color: var(--purple); margin-bottom: 20px;
+  }
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(36px, 5vw, 62px); font-weight: 400;
+    line-height: 1.08; letter-spacing: -1px; color: var(--ink); margin-bottom: 20px;
+  }
+  .section-sub {
+    font-size: 17px; font-weight: 400;
+    color: var(--ink-80); line-height: 1.7; max-width: 560px;
+  }
+
+  /* ─── SOCIAL PROOF STATS ─── */
+  .stats-section {
+    background: var(--white);
+    border-top: 1px solid var(--paper-dark);
+    border-bottom: 1px solid var(--paper-dark);
+    padding: 40px;
+  }
+  .stats-inner {
+    max-width: 900px; margin: 0 auto;
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 0;
+  }
+  .stat-item {
+    text-align: center; padding: 0 20px;
+    border-right: 1px solid var(--paper-dark);
+  }
+  .stat-item:last-child { border-right: none; }
+  .stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 42px; font-weight: 500; letter-spacing: -1px;
+    color: var(--purple); line-height: 1;
+    margin-bottom: 6px;
+  }
+  .stat-label { font-size: 13px; font-weight: 600; color: var(--ink-40); }
+
+  /* ─── FRAMEWORK GRID ─── */
+  .four-m-section { padding: 0 40px 120px; max-width: 1200px; margin: 0 auto; }
+  .four-m-intro { margin-bottom: 64px; }
+
+  .four-m-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr);
+    gap: 2px; background: var(--ink-10);
+    border-radius: var(--radius); overflow: hidden; border: 1px solid var(--ink-10);
+  }
+
+  .m-card {
+    background: var(--paper); padding: 52px 48px;
+    position: relative; overflow: hidden; transition: background 0.3s;
+  }
+  .m-card:hover { background: var(--white); }
+
+  .m-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 100px; font-weight: 300; line-height: 0.85;
+    color: var(--ink-10); position: absolute; top: 24px; right: 28px;
+  }
+
+  .m-icon { width: 44px; height: 44px; border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-bottom: 28px; font-size: 20px; }
+  .m1 .m-icon { background: var(--purple-pale); }
+  .m2 .m-icon { background: rgba(200,169,110,0.12); }
+  .m3 .m-icon { background: rgba(45,106,79,0.08); }
+  .m4 .m-icon { background: rgba(188,71,73,0.08); }
+
+  .m-title { font-family: 'Cormorant Garamond', serif; font-size: 30px; font-weight: 500; letter-spacing: -0.5px; color: var(--ink); margin-bottom: 14px; }
+  .m-desc { font-size: 15px; line-height: 1.7; color: var(--ink-80); font-weight: 400; max-width: 320px; }
+
+  .m-metric {
+    margin-top: 28px; display: inline-flex; align-items: center; gap: 8px;
+    border-radius: 100px; padding: 6px 14px; font-size: 12px; font-weight: 700;
+    letter-spacing: 0.3px; color: var(--white);
+  }
+  .m1 .m-metric { background: var(--purple); }
+  .m2 .m-metric { background: #7B6539; }
+  .m3 .m-metric { background: var(--green); }
+  .m4 .m-metric { background: var(--red); }
+
+  /* ─── DARK SECTION ─── */
+  .dark-section {
+    background: var(--night); color: var(--white);
+    padding: 120px 40px; position: relative; overflow: hidden;
+  }
+  .dark-section::before {
+    content: ''; position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 700px 500px at 80% 40%, rgba(91,78,199,0.10) 0%, transparent 65%),
+      radial-gradient(ellipse 400px 400px at 10% 90%, rgba(45,106,79,0.06) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .dark-section .section-title { color: var(--white); }
+  .dark-section .section-sub { color: rgba(255,255,255,0.6); }
+  .dark-section .section-label { color: var(--purple-light); }
+  .dark-inner { max-width: 1200px; margin: 0 auto; }
+
+  .features-split { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; margin-top: 80px; }
+  .feature-list { display: flex; flex-direction: column; gap: 32px; }
+
+  .feature-item {
+    display: flex; gap: 20px; padding: 24px; border-radius: var(--radius-sm);
+    transition: background 0.2s; cursor: default; border: 1px solid transparent;
+  }
+  .feature-item:hover { background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.06); }
+
+  .feature-icon { width: 40px; height: 40px; flex-shrink: 0; border-radius: 10px; background: rgba(91,78,199,0.15); display: flex; align-items: center; justify-content: center; font-size: 18px; }
+  .feature-item h3 { font-size: 16px; font-weight: 700; color: var(--white); margin-bottom: 6px; letter-spacing: -0.2px; }
+  .feature-item p { font-size: 14px; font-weight: 400; color: rgba(255,255,255,0.55); line-height: 1.65; }
+
+  /* Phone */
+  .phone-mockup-wrap { display: flex; align-items: center; justify-content: center; position: relative; }
+
+  .phone-frame {
+    width: 280px; height: 560px; background: var(--night-3);
+    border-radius: 44px; border: 1.5px solid rgba(255,255,255,0.12);
+    overflow: hidden; position: relative;
+    box-shadow: 0 0 0 1px rgba(0,0,0,0.5), 0 60px 120px rgba(0,0,0,0.5), 0 0 60px rgba(91,78,199,0.14), inset 0 1px 0 rgba(255,255,255,0.08);
+  }
+  .phone-notch { position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 100px; height: 30px; background: var(--night); border-radius: 0 0 20px 20px; z-index: 10; }
+  .phone-screen { padding: 44px 18px 18px; height: 100%; display: flex; flex-direction: column; gap: 10px; }
+  .phone-header { text-align: center; margin-bottom: 4px; }
+  .phone-header-label { font-size: 10px; color: rgba(255,255,255,0.4); font-weight: 600; letter-spacing: 1px; text-transform: uppercase; }
+  .phone-ticker { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 500; color: var(--white); letter-spacing: -0.5px; }
+  .phone-price { font-size: 13px; color: rgba(255,255,255,0.5); }
+  .phone-mos-badge { background: rgba(91,78,199,0.25); border: 1px solid rgba(91,78,199,0.4); border-radius: 100px; padding: 4px 12px; font-size: 11px; font-weight: 700; color: var(--purple-light); display: inline-block; margin-top: 4px; }
+  .phone-section-label { font-size: 9px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--purple-light); margin-bottom: 6px; }
+  .phone-score-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 14px; background: rgba(255,255,255,0.04); border-radius: 10px; border: 1px solid rgba(255,255,255,0.06); }
+  .phone-score-name { font-size: 12px; font-weight: 600; color: rgba(255,255,255,0.7); }
+  .phone-score-val { font-size: 14px; font-weight: 700; color: var(--green-glow); }
+  .phone-score-val.amber { color: var(--gold-light); }
+  .phone-bar-row { padding: 10px 14px; background: rgba(255,255,255,0.04); border-radius: 10px; border: 1px solid rgba(255,255,255,0.06); }
+  .phone-bar-label { display: flex; justify-content: space-between; font-size: 11px; font-weight: 600; margin-bottom: 8px; }
+  .phone-bar-track { height: 6px; background: rgba(255,255,255,0.08); border-radius: 3px; overflow: hidden; }
+  .phone-bar-fill { height: 100%; border-radius: 3px; background: linear-gradient(90deg, var(--purple), var(--purple-light)); }
+  .phone-buy-price { padding: 12px 14px; background: rgba(91,78,199,0.15); border: 1px solid rgba(91,78,199,0.3); border-radius: 10px; display: flex; align-items: center; justify-content: space-between; }
+  .phone-buy-label { font-size: 11px; font-weight: 700; color: var(--purple-light); }
+  .phone-buy-val { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 600; color: var(--white); }
+
+  .float-card { position: absolute; background: rgba(20,29,48,0.95); border: 1px solid rgba(91,78,199,0.25); border-radius: 14px; padding: 14px 18px; backdrop-filter: blur(10px); box-shadow: 0 20px 60px rgba(0,0,0,0.4), 0 0 20px rgba(91,78,199,0.08); }
+  .float-card-1 { right: -60px; top: 80px; animation: float1 4s ease-in-out infinite; }
+  .float-card-2 { left: -70px; bottom: 100px; animation: float2 5s ease-in-out infinite; }
+  @keyframes float1 { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
+  @keyframes float2 { 0%,100%{transform:translateY(0)} 50%{transform:translateY(6px)} }
+  .float-card-title { font-size: 10px; font-weight: 700; letter-spacing: 0.5px; color: var(--purple-light); text-transform: uppercase; margin-bottom: 4px; }
+  .float-card-val { font-size: 18px; font-weight: 700; color: var(--white); letter-spacing: -0.5px; }
+  .float-card-sub { font-size: 11px; font-weight: 600; color: var(--green-glow); }
+
+  /* ─── AI SECTION ─── */
+  .ai-section {
+    padding: 120px 40px; position: relative; overflow: hidden;
+    background: var(--paper);
+  }
+
+  .ai-section-inner { max-width: 1200px; margin: 0 auto; }
+
+  .ai-split { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; margin-top: 64px; }
+
+  .ai-card {
+    background: var(--night-2);
+    border-radius: 20px;
+    border: 1px solid rgba(91,78,199,0.2);
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 40px 80px rgba(0,0,0,0.25), 0 0 40px rgba(91,78,199,0.08);
+  }
+
+  .ai-card-header {
+    padding: 20px 24px 16px;
+    background: rgba(91,78,199,0.12);
+    border-bottom: 1px solid rgba(91,78,199,0.15);
+    display: flex; align-items: center; gap: 10px;
+  }
+
+  .ai-card-dot { width: 10px; height: 10px; border-radius: 50%; }
+  .ai-card-dot.purple { background: var(--purple); }
+  .ai-card-dot.dim { background: rgba(255,255,255,0.15); }
+
+  .ai-card-label { font-size: 12px; font-weight: 700; color: var(--purple-light); letter-spacing: 1px; text-transform: uppercase; margin-left: 4px; }
+
+  .ai-card-body { padding: 24px; display: flex; flex-direction: column; gap: 12px; }
+
+  .ai-insight-row {
+    padding: 14px 16px;
+    background: rgba(255,255,255,0.04);
+    border-radius: 10px;
+    border: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .ai-insight-label { font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--purple-light); margin-bottom: 6px; }
+  .ai-insight-text { font-size: 13px; color: rgba(255,255,255,0.75); line-height: 1.6; font-weight: 400; }
+
+  .ai-verdict {
+    padding: 14px 16px;
+    background: rgba(45,106,79,0.15);
+    border-radius: 10px;
+    border: 1px solid rgba(64,145,108,0.25);
+    display: flex; align-items: center; justify-content: space-between;
+  }
+
+  .ai-verdict-label { font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--green-glow); margin-bottom: 4px; }
+  .ai-verdict-text { font-size: 14px; font-weight: 700; color: var(--white); }
+
+  .ai-powered-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(91,78,199,0.15);
+    border: 1px solid rgba(91,78,199,0.3);
+    border-radius: 100px; padding: 5px 14px;
+    font-size: 11px; font-weight: 700;
+    color: var(--purple-light); letter-spacing: 0.5px;
+    text-transform: uppercase; margin-bottom: 24px;
+  }
+
+  .ai-feature-list { display: flex; flex-direction: column; gap: 24px; margin-top: 40px; }
+
+  .ai-feature-item { display: flex; gap: 16px; align-items: flex-start; }
+
+  .ai-feature-num {
+    width: 28px; height: 28px; flex-shrink: 0;
+    background: var(--purple-pale); border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px; font-weight: 700; color: var(--purple);
+  }
+
+  .ai-feature-title { font-size: 15px; font-weight: 700; color: var(--ink); margin-bottom: 4px; }
+  .ai-feature-desc { font-size: 14px; color: var(--ink-80); line-height: 1.6; }
+
+  /* ─── LEARN SECTION ─── */
+  .learn-section {
+    background: var(--night);
+    padding: 120px 40px;
+    position: relative; overflow: hidden;
+  }
+
+  .learn-section::before {
+    content: ''; position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 700px 500px at 80% 30%, rgba(91,78,199,0.12) 0%, transparent 65%),
+      radial-gradient(ellipse 500px 400px at 10% 70%, rgba(45,106,79,0.06) 0%, transparent 60%),
+      radial-gradient(ellipse 300px 300px at 50% 90%, rgba(200,169,110,0.04) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .learn-inner { max-width: 1200px; margin: 0 auto; }
+  .learn-inner .section-title { color: var(--white); }
+  .learn-inner .section-sub { color: rgba(255,255,255,0.6); }
+  .learn-inner .section-label { color: var(--purple-light); }
+
+  .learn-split {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 80px;
+    align-items: center; margin-top: 64px;
+  }
+
+  .learn-benefits { display: flex; flex-direction: column; gap: 28px; margin-top: 48px; }
+
+  .learn-benefit {
+    display: flex; gap: 18px; align-items: flex-start;
+    padding: 20px; border-radius: var(--radius-sm);
+    border: 1px solid transparent;
+    transition: background 0.2s, border-color 0.2s;
+  }
+  .learn-benefit:hover { background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.06); }
+
+  .learn-benefit-icon {
+    width: 42px; height: 42px; flex-shrink: 0;
+    border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 18px;
+  }
+  .lb1 { background: rgba(91,78,199,0.2); }
+  .lb2 { background: rgba(200,169,110,0.15); }
+  .lb3 { background: rgba(45,106,79,0.15); }
+  .lb4 { background: rgba(91,78,199,0.15); }
+
+  .learn-benefit h3 { font-size: 15px; font-weight: 700; color: var(--white); margin-bottom: 5px; }
+  .learn-benefit p { font-size: 14px; color: rgba(255,255,255,0.55); line-height: 1.65; }
+
+  /* Chat mockup */
+  .chat-mockup {
+    background: var(--night-3);
+    border-radius: 24px;
+    border: 1px solid rgba(255,255,255,0.08);
+    overflow: hidden;
+    box-shadow: 0 40px 80px rgba(0,0,0,0.4), 0 0 40px rgba(91,78,199,0.10);
+  }
+
+  .chat-header {
+    background: rgba(91,78,199,0.2);
+    border-bottom: 1px solid rgba(91,78,199,0.2);
+    padding: 16px 20px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+
+  .chat-header-left { display: flex; align-items: center; gap: 10px; }
+
+  .chat-ai-dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: #52B788; animation: pulse 2s ease infinite;
+  }
+
+  .chat-title { font-size: 13px; font-weight: 700; color: var(--white); letter-spacing: 0.3px; }
+  .chat-subtitle { font-size: 11px; color: rgba(255,255,255,0.45); }
+
+  .chat-streak {
+    display: flex; align-items: center; gap: 6px;
+    background: rgba(200,169,110,0.15); border: 1px solid rgba(200,169,110,0.25);
+    border-radius: 100px; padding: 4px 10px;
+    font-size: 11px; font-weight: 700; color: var(--gold-light);
+  }
+
+  .chat-body { padding: 20px; display: flex; flex-direction: column; gap: 14px; }
+
+  .chat-msg { display: flex; gap: 10px; align-items: flex-start; }
+  .chat-msg.user { flex-direction: row-reverse; }
+
+  .chat-avatar {
+    width: 28px; height: 28px; border-radius: 50%; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11px; font-weight: 700; color: var(--white);
+  }
+  .chat-avatar.ai { background: var(--purple); }
+  .chat-avatar.user-av { background: rgba(255,255,255,0.15); font-size: 10px; }
+
+  .chat-bubble {
+    max-width: 80%; padding: 10px 14px; border-radius: 12px;
+    font-size: 13px; line-height: 1.6; font-weight: 400;
+  }
+  .chat-bubble.ai { background: rgba(255,255,255,0.06); color: rgba(255,255,255,0.85); border-radius: 4px 12px 12px 12px; border: 1px solid rgba(255,255,255,0.07); }
+  .chat-bubble.user-bubble { background: var(--purple); color: var(--white); border-radius: 12px 4px 12px 12px; }
+
+  .chat-bubble strong { color: var(--purple-light); font-weight: 600; }
+
+  .chat-followup {
+    display: flex; gap: 8px; padding: 0 0 4px 38px; flex-wrap: wrap;
+  }
+
+  .chat-followup-btn {
+    background: rgba(91,78,199,0.15); border: 1px solid rgba(91,78,199,0.3);
+    border-radius: 20px; padding: 5px 12px;
+    font-size: 11px; font-weight: 600; color: var(--purple-light);
+    cursor: pointer;
+  }
+
+  .chat-input-row {
+    display: flex; gap: 8px; padding: 14px 20px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    background: rgba(0,0,0,0.2);
+    align-items: center;
+  }
+
+  .chat-input-field {
+    flex: 1; background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.08); border-radius: 20px;
+    padding: 9px 14px; font-size: 12px; color: rgba(255,255,255,0.4);
+  }
+
+  .chat-send-btn {
+    width: 32px; height: 32px; border-radius: 50%;
+    background: var(--purple); display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+
+  /* Learn value props strip */
+  .learn-stats {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px;
+    background: rgba(255,255,255,0.04);
+    border-radius: 16px; overflow: hidden; margin-top: 64px;
+    border: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .learn-stat-item {
+    padding: 32px 28px; background: rgba(255,255,255,0.02);
+    text-align: center; transition: background 0.2s;
+  }
+  .learn-stat-item:hover { background: rgba(255,255,255,0.04); }
+
+  .learn-stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 42px; font-weight: 500; color: var(--purple-light);
+    letter-spacing: -1px; margin-bottom: 6px;
+  }
+  .learn-stat-label { font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.4); line-height: 1.4; }
+
+  /* ─── DAILY QUESTION SECTION ─── */
+  .daily-section {
+    background: var(--purple);
+    padding: 80px 40px;
+    position: relative; overflow: hidden;
+  }
+  .daily-section::before {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(ellipse 700px 400px at 60% 50%, rgba(255,255,255,0.07) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .daily-inner {
+    max-width: 1200px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 2fr; gap: 80px; align-items: center;
+  }
+
+  .daily-label { font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.6); margin-bottom: 12px; }
+  .daily-title { font-family: 'Cormorant Garamond', serif; font-size: 36px; font-weight: 400; font-style: italic; color: rgba(255,255,255,0.95); line-height: 1.2; letter-spacing: -0.5px; }
+
+  .daily-cards { display: flex; flex-direction: column; gap: 12px; }
+
+  .daily-card {
+    background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 14px; padding: 16px 20px;
+    display: flex; align-items: center; gap: 16px;
+    transition: background 0.2s;
+  }
+  .daily-card:hover { background: rgba(255,255,255,0.15); }
+  .daily-card:first-child { background: rgba(255,255,255,0.18); }
+
+  .daily-card-icon { font-size: 20px; flex-shrink: 0; }
+  .daily-card-text { font-size: 14px; font-weight: 500; color: rgba(255,255,255,0.9); line-height: 1.5; }
+  .daily-card-arrow { margin-left: auto; color: rgba(255,255,255,0.4); font-size: 16px; flex-shrink: 0; }
+
+  /* ─── PRICING SECTION ─── */
+  .pricing-section {
+    background: var(--paper);
+    padding: 120px 40px;
+    position: relative;
+  }
+
+  .pricing-section::before {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(ellipse 800px 600px at 50% 50%, rgba(91,78,199,0.05) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .pricing-inner { max-width: 1000px; margin: 0 auto; }
+
+  .pricing-intro { text-align: center; margin-bottom: 64px; }
+  .pricing-intro .section-sub { margin: 0 auto; }
+
+  .pricing-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+    align-items: start;
+  }
+
+  .pricing-card {
+    background: var(--white);
+    border: 1.5px solid var(--paper-dark);
+    border-radius: 20px; padding: 44px 40px;
+    position: relative; overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .pricing-card:hover { transform: translateY(-4px); box-shadow: 0 20px 60px rgba(0,0,0,0.08); }
+
+  .pricing-card.featured {
+    background: var(--night);
+    border-color: rgba(91,78,199,0.4);
+    box-shadow: 0 0 0 1px rgba(91,78,199,0.15), 0 30px 80px rgba(0,0,0,0.15);
+  }
+
+  .pricing-card.featured::before {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(ellipse 400px 300px at 80% 20%, rgba(91,78,199,0.15) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .pricing-popular {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: var(--purple); color: var(--white);
+    border-radius: 100px; padding: 4px 12px;
+    font-size: 11px; font-weight: 700; letter-spacing: 0.5px;
+    text-transform: uppercase; margin-bottom: 20px;
+  }
+
+  .pricing-tier { font-size: 13px; font-weight: 700; color: var(--ink-40); letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 12px; }
+  .pricing-card.featured .pricing-tier { color: rgba(255,255,255,0.4); }
+
+  .pricing-name { font-family: 'Cormorant Garamond', serif; font-size: 32px; font-weight: 500; letter-spacing: -0.5px; color: var(--ink); margin-bottom: 8px; }
+  .pricing-card.featured .pricing-name { color: var(--white); }
+
+  .pricing-desc { font-size: 14px; color: var(--ink-80); line-height: 1.6; margin-bottom: 32px; }
+  .pricing-card.featured .pricing-desc { color: rgba(255,255,255,0.55); }
+
+  .pricing-price {
+    display: flex; align-items: baseline; gap: 4px;
+    margin-bottom: 8px;
+  }
+  .pricing-amount {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 52px; font-weight: 500; letter-spacing: -2px; color: var(--ink);
+  }
+  .pricing-card.featured .pricing-amount { color: var(--white); }
+  .pricing-period { font-size: 14px; color: var(--ink-40); font-weight: 500; }
+  .pricing-card.featured .pricing-period { color: rgba(255,255,255,0.4); }
+
+  .pricing-trial {
+    font-size: 13px; font-weight: 600; color: var(--green);
+    margin-bottom: 36px; display: flex; align-items: center; gap: 6px;
+  }
+  .pricing-card.featured .pricing-trial { color: var(--green-glow); }
+
+  .pricing-features { display: flex; flex-direction: column; gap: 14px; margin-bottom: 36px; }
+
+  .pricing-feature {
+    display: flex; gap: 10px; align-items: flex-start;
+    font-size: 14px; color: var(--ink-80); line-height: 1.5;
+  }
+  .pricing-card.featured .pricing-feature { color: rgba(255,255,255,0.7); }
+
+  .pricing-check { color: var(--green); font-weight: 700; font-size: 15px; flex-shrink: 0; margin-top: 1px; }
+  .pricing-card.featured .pricing-check { color: var(--green-glow); }
+
+  .pricing-ai-check { color: var(--purple); font-weight: 700; font-size: 15px; flex-shrink: 0; margin-top: 1px; }
+  .pricing-card.featured .pricing-ai-check { color: var(--purple-light); }
+
+  .pricing-divider { height: 1px; background: var(--paper-dark); margin: 20px 0; }
+  .pricing-card.featured .pricing-divider { background: rgba(255,255,255,0.08); }
+
+  .pricing-section-label { font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--ink-40); margin-bottom: 14px; }
+  .pricing-card.featured .pricing-section-label { color: rgba(255,255,255,0.35); }
+
+  .pricing-btn {
+    display: block; width: 100%; padding: 15px;
+    border-radius: 100px; font-family: 'Syne', sans-serif;
+    font-size: 15px; font-weight: 700; text-align: center;
+    cursor: pointer; border: none; text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+  }
+
+  .pricing-btn-outline {
+    background: transparent;
+    border: 1.5px solid var(--paper-dark);
+    color: var(--ink);
+  }
+  .pricing-btn-outline:hover { border-color: var(--purple); color: var(--purple); transform: translateY(-1px); }
+
+  .pricing-btn-filled {
+    background: var(--purple); color: var(--white);
+    box-shadow: 0 6px 24px rgba(91,78,199,0.35);
+  }
+  .pricing-btn-filled:hover { background: var(--purple-light); transform: translateY(-2px); box-shadow: 0 10px 32px rgba(91,78,199,0.45); }
+
+  .pricing-note { text-align: center; margin-top: 32px; font-size: 13px; color: var(--ink-40); font-weight: 500; }
+
+  /* ─── PRINCIPLES STRIP ─── */
+  .principles-strip { background: var(--purple); padding: 60px 40px; position: relative; overflow: hidden; }
+  .principles-strip::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 600px 300px at 70% 50%, rgba(255,255,255,0.07) 0%, transparent 70%); pointer-events: none; }
+  .principles-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 3fr; gap: 80px; align-items: center; }
+  .principles-heading { font-family: 'Cormorant Garamond', serif; font-size: 36px; font-weight: 400; font-style: italic; color: rgba(255,255,255,0.9); line-height: 1.2; letter-spacing: -0.5px; }
+  .principles-list { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+  .principle-item h4 { font-size: 14px; font-weight: 700; color: var(--white); margin-bottom: 8px; }
+  .principle-item p { font-size: 13px; font-weight: 400; color: rgba(255,255,255,0.65); line-height: 1.6; }
+
+  /* ─── HOW IT WORKS ─── */
+  .steps-section { padding: 120px 40px; max-width: 1200px; margin: 0 auto; }
+
+  .steps-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 2px; margin-top: 64px;
+    background: var(--ink-10); border-radius: var(--radius); overflow: hidden;
+  }
+
+  .step-card { background: var(--paper); padding: 40px 32px; }
+  .step-num { font-size: 12px; font-weight: 700; color: var(--purple); letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 24px; }
+  .step-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 500; letter-spacing: -0.3px; color: var(--ink); margin-bottom: 14px; }
+  .step-card p { font-size: 14px; font-weight: 400; color: var(--ink-80); line-height: 1.7; }
+  .step-icon { width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 22px; margin-bottom: 28px; }
+
+  /* ─── TESTIMONIAL ─── */
+  .testimonial-section { background: var(--night-2); padding: 100px 40px; }
+  .testimonial-inner { max-width: 1000px; margin: 0 auto; }
+
+  .testimonial-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 60px; }
+
+  .testimonial-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 14px; padding: 28px 24px;
+  }
+
+  .testimonial-stars { color: var(--gold); font-size: 14px; margin-bottom: 14px; letter-spacing: 2px; }
+  .testimonial-text { font-size: 14px; color: rgba(255,255,255,0.7); line-height: 1.7; margin-bottom: 20px; font-style: italic; }
+  .testimonial-author { display: flex; align-items: center; gap: 10px; }
+  .testimonial-avatar { width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; color: var(--white); }
+  .testimonial-name { font-size: 13px; font-weight: 700; color: var(--white); }
+  .testimonial-role { font-size: 11px; color: rgba(255,255,255,0.4); }
+
+  /* ─── CTA ─── */
+  .cta-section { padding: 140px 40px; text-align: center; position: relative; overflow: hidden; }
+  .cta-bg { position: absolute; inset: 0; background: radial-gradient(ellipse 700px 500px at 50% 50%, rgba(91,78,199,0.07) 0%, transparent 70%); pointer-events: none; }
+  .cta-section .section-title { max-width: 640px; margin: 0 auto 20px; }
+  .cta-section .section-sub { max-width: 480px; margin: 0 auto 48px; }
+
+  .cta-urgency {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(188,71,73,0.08); border: 1px solid rgba(188,71,73,0.2);
+    border-radius: 100px; padding: 6px 16px;
+    font-size: 13px; font-weight: 600; color: var(--red);
+    margin-bottom: 32px;
+  }
+
+  .cta-form { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; max-width: 500px; margin: 0 auto 24px; }
+
+  .cta-input {
+    flex: 1; min-width: 220px; padding: 15px 22px;
+    border: 1.5px solid var(--paper-dark); border-radius: 100px;
+    background: var(--white); font-family: 'Syne', sans-serif;
+    font-size: 15px; color: var(--ink); outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .cta-input::placeholder { color: var(--ink-40); }
+  .cta-input:focus { border-color: var(--purple); box-shadow: 0 0 0 4px rgba(91,78,199,0.10); }
+
+  .cta-btn {
+    padding: 15px 30px; background: var(--purple); color: var(--white);
+    border: none; border-radius: 100px; font-family: 'Syne', sans-serif;
+    font-size: 15px; font-weight: 700; cursor: pointer; white-space: nowrap;
+    transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+    box-shadow: 0 6px 24px rgba(91,78,199,0.3);
+  }
+  .cta-btn:hover { background: var(--purple-light); transform: translateY(-2px); box-shadow: 0 10px 32px rgba(91,78,199,0.4); }
+
+  .cta-perks { display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; margin-top: 20px; }
+  .cta-perk { font-size: 13px; color: var(--ink-40); font-weight: 500; display: flex; align-items: center; gap: 6px; }
+
+  .success-msg { display: none; flex-direction: column; align-items: center; gap: 12px; padding: 24px 32px; background: rgba(91,78,199,0.07); border: 1.5px solid rgba(91,78,199,0.2); border-radius: 16px; max-width: 400px; margin: 0 auto; }
+  .success-msg.visible { display: flex; }
+  .success-icon { font-size: 28px; }
+  .success-title { font-size: 16px; font-weight: 700; color: var(--purple); }
+  .success-text { font-size: 14px; color: var(--ink-80); text-align: center; }
+
+  /* ─── FOOTER ─── */
+  footer { background: var(--ink); color: rgba(255,255,255,0.4); padding: 48px 40px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px; }
+  .footer-logo { font-size: 16px; font-weight: 700; color: var(--white); }
+  .footer-links { display: flex; gap: 28px; }
+  .footer-links a { font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.4); text-decoration: none; transition: color 0.2s; }
+  .footer-links a:hover { color: rgba(255,255,255,0.8); }
+  .footer-copy { font-size: 13px; }
+
+  /* ─── ANIMATIONS ─── */
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+  .fade-up { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 768px) {
+    nav { padding: 16px 20px; }
+    .nav-links { display: none; }
+    .hero { padding: 100px 20px 60px; }
+    .four-m-section, .steps-section, .ai-section, .learn-section, .pricing-section { padding: 80px 20px; }
+    .four-m-grid, .testimonial-grid, .pricing-grid { grid-template-columns: 1fr; }
+    .features-split, .ai-split, .learn-split { grid-template-columns: 1fr; gap: 60px; }
+    .steps-grid { grid-template-columns: 1fr 1fr; }
+    .phone-mockup-wrap, .ai-card, .chat-mockup { display: none; }
+    .dark-section { padding: 80px 20px; }
+    .learn-section { padding: 80px 20px; }
+    .principles-inner { grid-template-columns: 1fr; gap: 32px; }
+    .principles-list { grid-template-columns: 1fr; gap: 24px; }
+    footer { padding: 32px 20px; flex-direction: column; align-items: flex-start; }
+    .float-card { display: none; }
+    .m-card { padding: 36px 28px; }
+    .stats-inner { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    .stat-item { border-right: none; border-bottom: 1px solid var(--paper-dark); padding-bottom: 20px; }
+    .daily-inner { grid-template-columns: 1fr; gap: 40px; }
+    .learn-stats { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#">
+    <div class="nav-logo-icon">
+      <svg viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M9 2L14 6V12L9 16L4 12V6L9 2Z" stroke="#FFFFFF" stroke-width="1.5" stroke-linejoin="round"/>
+        <path d="M9 5L12 7.5V11L9 13.5L6 11V7.5L9 5Z" fill="#FFFFFF" opacity="0.35"/>
+      </svg>
+    </div>
+    Moatly
+  </a>
+  <div class="nav-links">
+    <a class="nav-link" href="#framework">The Framework</a>
+    <a class="nav-link" href="#moatlyai">MoatlyAI</a>
+    <a class="nav-link" href="#learn">Learn</a>
+    <a class="nav-link" href="#pricing">Pricing</a>
+  </div>
+  <a class="nav-cta" href="#waitlist">Get Early Access</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+
+  <div class="hero-badge">
+    <div class="badge-dot"></div>
+    Coming Soon — iOS & Android
+  </div>
+
+  <h1>Stop guessing.<br>Start investing with<br><em>real conviction.</em></h1>
+
+  <p class="hero-sub">
+    Moatly is the only investing platform that combines rigorous fundamental analysis, AI that knows your portfolio, and an always-on value investing tutor — so you know exactly what a business is worth, and build the conviction to act on it.
+  </p>
+
+  <div class="hero-chips">
+    <div class="hero-chip">✦ AI That Knows Your Portfolio</div>
+    <div class="hero-chip">🏰 Meaning, Moat, Management & Margin of Safety</div>
+    <div class="hero-chip">📊 Your Exact Buy Price</div>
+    <div class="hero-chip">🎓 MoatlyAI Tutor</div>
+    <div class="hero-chip">💡 Daily Insights</div>
+  </div>
+
+  <div class="hero-form">
+    <input class="hero-input" type="email" id="hero-email" placeholder="Your email address" />
+    <button class="hero-btn" onclick="handleHeroSignup()">Get Early Access — Free</button>
+  </div>
+
+  <div class="hero-social-proof">
+    <div class="avatar-stack">
+      <div class="avatar av1">JL</div>
+      <div class="avatar av2">MK</div>
+      <div class="avatar av3">RS</div>
+      <div class="avatar av4">AT</div>
+      <div class="avatar av5">PW</div>
+    </div>
+    <span>Join 500+ value investors already on the waitlist</span>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-section fade-up">
+  <div class="stats-inner">
+    <div class="stat-item">
+      <div class="stat-num">4M</div>
+      <div class="stat-label">Framework Every Pro Uses</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">10min</div>
+      <div class="stat-label">vs. 4 Hours of Manual Research</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">3</div>
+      <div class="stat-label">Valuation Methods Per Stock</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">∞</div>
+      <div class="stat-label">Questions MoatlyAI Answers</div>
+    </div>
+  </div>
+</div>
+
+<!-- FRAMEWORK -->
+<div id="framework" style="background: var(--paper); padding-top: 120px;">
+  <div class="four-m-section">
+    <div class="four-m-intro fade-up">
+      <p class="section-label">The Framework</p>
+      <h2 class="section-title">Four questions. Every stock.<br><em>One framework.</em></h2>
+      <p class="section-sub">Most investing apps give you data and leave you to figure out what it means. Moatly gives you a framework — four questions every serious investor must answer before committing a dollar, quantified and scored for every stock you search.</p>
+    </div>
+
+    <div class="four-m-grid fade-up">
+      <div class="m-card m1">
+        <div class="m-number">1</div>
+        <div class="m-icon">🔍</div>
+        <div class="m-title">Meaning</div>
+        <p class="m-desc">Do you truly understand this business? Moatly quantifies your fit using your Circle of Competence and a five-question Conviction Check — producing a Meaning score that's unique to you. Same stock, two investors, completely different scores. Because the best investment is the one you'll hold without flinching.</p>
+        <div class="m-metric">📋 Circle of Competence + Conviction Check</div>
+      </div>
+      <div class="m-card m2">
+        <div class="m-number">2</div>
+        <div class="m-icon">🏰</div>
+        <div class="m-title">MOAT</div>
+        <p class="m-desc">Does this business have a durable competitive advantage? Moatly scores it using the Big Five growth metrics — revenue, earnings, equity, operating cash, and free cash flow — compounded across 1, 3, 5, 7, and 10 year windows. No analyst opinions. Just the math of whether this business is widening the gap.</p>
+        <div class="m-metric">📊 Big Five Compounded Growth Rates</div>
+      </div>
+      <div class="m-card m3">
+        <div class="m-number">3</div>
+        <div class="m-icon">👤</div>
+        <div class="m-title">Management</div>
+        <p class="m-desc">Is leadership genuinely owner-oriented? Moatly scores ROE, ROIC, ROA, debt discipline, and the proprietary MER Score — measuring how effectively management deploys your capital. Great businesses are routinely destroyed by poor stewards. Know which kind you're dealing with.</p>
+        <div class="m-metric">📈 ROIC, MER Score & Debt Discipline</div>
+      </div>
+      <div class="m-card m4">
+        <div class="m-number">4</div>
+        <div class="m-icon">🎯</div>
+        <div class="m-title">Margin of Safety</div>
+        <p class="m-desc">Is today's price meaningfully below what this business is actually worth? Moatly calculates your exact buy price using three independent valuation methods. Know your price. Wait for your price. The margin of safety is your protection when you're wrong — even about a great business.</p>
+        <div class="m-metric">💰 Three Independent Valuation Methods</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- DARK FEATURES SECTION -->
+<section class="dark-section">
+  <div class="dark-inner">
+    <div class="features-split">
+      <div class="fade-up">
+        <p class="section-label">The App</p>
+        <h2 class="section-title">What used to take 4 hours.<br>Now takes <em>10 minutes.</em></h2>
+        <p class="section-sub">Type a ticker. Moatly instantly loads live data, calculates all four scores, and surfaces AI analysis — everything a professional analyst would spend hours on, ready in seconds. You spend your time making decisions, not gathering data.</p>
+
+        <div class="feature-list" style="margin-top: 48px;">
+          <div class="feature-item">
+            <div class="feature-icon">📡</div>
+            <div>
+              <h3>Automatic Data. Zero Spreadsheets.</h3>
+              <p>EPS, FCF, growth rates, balance sheet ratios — calculated and scored the moment you search. No manual research. No guessing at numbers that are already public.</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">🧮</div>
+            <div>
+              <h3>Three Valuation Methods, One Buy Price</h3>
+              <p>Intrinsic Value, 10-CAP, and Payback Time give you three independent buy prices. Adjust any input and watch every number update in real time.</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">🔍</div>
+            <div>
+              <h3>Your Meaning Score — Uniquely Yours</h3>
+              <p>Your Circle of Competence plus a five-question Conviction Check gives every stock a Meaning score no other investor gets. The best investment is the one YOU understand and believe in.</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">⭐</div>
+            <div>
+              <h3>Watchlist & Buy Zone Alerts</h3>
+              <p>Track every business you care about. Get alerted the moment a stock enters your buy zone — with MoatlyAI context on why the opportunity exists.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Phone Mockup -->
+      <div class="phone-mockup-wrap fade-up" style="transition-delay:0.15s">
+        <div class="float-card float-card-1">
+          <div class="float-card-title">MOAT Score</div>
+          <div class="float-card-val">89/100</div>
+          <div class="float-card-sub">↑ Wide Moat</div>
+        </div>
+
+        <div class="phone-frame">
+          <div class="phone-notch"></div>
+          <div class="phone-screen">
+            <div class="phone-header">
+              <div class="phone-header-label">Analyzing</div>
+              <div class="phone-ticker">LULU</div>
+              <div class="phone-price">Current: $163.14</div>
+              <div class="phone-mos-badge">✓ Strong Margin of Safety</div>
+            </div>
+            <div>
+              <div class="phone-section-label">Scores</div>
+              <div style="display:flex;flex-direction:column;gap:6px;">
+                <div class="phone-score-row">
+                  <span class="phone-score-name">Meaning</span>
+                  <span class="phone-score-val">88</span>
+                </div>
+                <div class="phone-score-row">
+                  <span class="phone-score-name">MOAT</span>
+                  <span class="phone-score-val">85</span>
+                </div>
+                <div class="phone-score-row">
+                  <span class="phone-score-name">Management</span>
+                  <span class="phone-score-val">100</span>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div class="phone-section-label">Margin of Safety</div>
+              <div class="phone-bar-row">
+                <div class="phone-bar-label">
+                  <span style="color:rgba(255,255,255,0.6);font-size:11px">Price vs. Intrinsic Value</span>
+                  <span style="color:var(--purple-light);font-size:11px">↓ 59% below</span>
+                </div>
+                <div class="phone-bar-track">
+                  <div class="phone-bar-fill" style="width:41%"></div>
+                </div>
+              </div>
+            </div>
+            <div class="phone-buy-price">
+              <div>
+                <div class="phone-buy-label">MOS Buy Price</div>
+                <div style="font-size:10px;color:rgba(255,255,255,0.4);margin-top:2px">50% below intrinsic value</div>
+              </div>
+              <div class="phone-buy-val">$199.05</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="float-card float-card-2">
+          <div class="float-card-title">AI Verdict</div>
+          <div class="float-card-val" style="color:var(--green-glow);">Buy</div>
+          <div class="float-card-sub">MoatlyAI insight ready</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MOATLY AI SECTION -->
+<section id="moatlyai" class="ai-section">
+  <div class="ai-section-inner">
+    <div class="fade-up" style="text-align:center; max-width:700px; margin:0 auto 0;">
+      <div class="ai-powered-badge" style="margin: 0 auto 24px;">✦ Powered by MoatlyAI</div>
+      <p class="section-label">MoatlyAI — Context, Not Just Data</p>
+      <h2 class="section-title">An analyst at every screen.<br><em>That already knows your stocks.</em></h2>
+      <p class="section-sub" style="margin: 0 auto;">Most apps give you data and leave you to figure out what it means. MoatlyAI gives you answers — grounded in the specific companies on your watchlist, your scores, and real-time fundamentals. Not a chatbot bolted on the side. Analysis woven into every screen.</p>
+    </div>
+
+    <div class="ai-split">
+      <div class="fade-up">
+        <div class="ai-feature-list">
+          <div class="ai-feature-item">
+            <div class="ai-feature-num">1</div>
+            <div>
+              <div class="ai-feature-title">Moat Intelligence — On Your Stocks</div>
+              <div class="ai-feature-desc">Explains what type of moat a business has, whether it's strengthening or eroding, and what the Big Five numbers mean for that specific company — not a generic definition, but analysis of the data Moatly already calculated.</div>
+            </div>
+          </div>
+          <div class="ai-feature-item">
+            <div class="ai-feature-num">2</div>
+            <div>
+              <div class="ai-feature-title">Management Assessment — For That CEO</div>
+              <div class="ai-feature-desc">Evaluates the specific leadership team — capital allocation track record, debt discipline, whether the MER Score signals a true owner-operator or empire builder. Real names. Real decisions. Real context.</div>
+            </div>
+          </div>
+          <div class="ai-feature-item">
+            <div class="ai-feature-num">3</div>
+            <div>
+              <div class="ai-feature-title">Valuation Context — At That Buy Price</div>
+              <div class="ai-feature-desc">Explains what you must believe for the intrinsic value to hold, and flags the specific risks that could erode it. Ask about any stock and get an answer grounded in Moatly's actual valuation data.</div>
+            </div>
+          </div>
+          <div class="ai-feature-item">
+            <div class="ai-feature-num">4</div>
+            <div>
+              <div class="ai-feature-title">Daily Insight — Personalized to Your Watchlist</div>
+              <div class="ai-feature-desc">Every morning, a contextual insight based on the companies you're actually tracking. Not headlines. Not hot takes. Your watchlist is your curriculum.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- AI Card Demo -->
+      <div class="fade-up" style="transition-delay:0.15s">
+        <div class="ai-card">
+          <div class="ai-card-header">
+            <div class="ai-card-dot purple"></div>
+            <div class="ai-card-dot dim"></div>
+            <div class="ai-card-dot dim"></div>
+            <div class="ai-card-label">MoatlyAI — LULU Analysis</div>
+          </div>
+          <div class="ai-card-body">
+            <div class="ai-insight-row">
+              <div class="ai-insight-label">MOAT TYPE</div>
+              <div class="ai-insight-text">Lululemon's moat is community-embedded brand loyalty — switching feels like a social downgrade, not just a product swap. The 10Y revenue CAGR of 20% confirms genuine competitive separation from the broader athletic market.</div>
+            </div>
+            <div class="ai-insight-row">
+              <div class="ai-insight-label">MOAT DURABILITY</div>
+              <div class="ai-insight-text">The moat appears stable but faces a credible threat: Alo Yoga and Vuori are gaining share with the same affluent demographic. North American comps warrant close attention over the next two to three quarters.</div>
+            </div>
+            <div class="ai-insight-row">
+              <div class="ai-insight-label">VALUATION SIGNAL</div>
+              <div class="ai-insight-text">At $163.14, the stock trades $36 below the MOS buy price and $235 below intrinsic value — a rare entry point into a premium brand the market is temporarily discounting on short-term concerns.</div>
+            </div>
+            <div class="ai-verdict">
+              <div>
+                <div class="ai-verdict-label">MoatlyAI Verdict</div>
+                <div class="ai-verdict-text">Buy — strong margin of safety, durable moat</div>
+              </div>
+              <div style="font-size:22px;">✓</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MOATLYAI LEARN SECTION -->
+<section id="learn" class="learn-section">
+  <div class="learn-inner">
+    <div class="fade-up" style="text-align:center; max-width: 700px; margin: 0 auto 0;">
+      <div class="ai-powered-badge" style="margin: 0 auto 24px;">✦ Exclusive to Moatly</div>
+      <p class="section-label" style="color:var(--purple-light)">MoatlyAI Learn</p>
+      <h2 class="section-title" style="color:var(--white);">The investing tutor that teaches you<br>through your own portfolio.</h2>
+      <p class="section-sub" style="color:rgba(255,255,255,0.6); margin: 0 auto;">MoatlyAI Learn answers any value investing question in the context of your actual watchlist. Not a textbook. Not generic advice. The mentor most investors never had — and it already knows your portfolio.</p>
+    </div>
+
+    <div class="learn-split">
+      <div class="fade-up">
+        <div class="learn-benefits">
+          <div class="learn-benefit">
+            <div class="learn-benefit-icon lb1">🧠</div>
+            <div>
+              <h3>Ask Anything. Get Answers That Matter.</h3>
+              <p>From "what is a moat?" to "should I buy Amazon at this price?" — answers tied to your actual watchlist, not a textbook. No generic advice that doesn't apply to what you're analyzing.</p>
+            </div>
+          </div>
+          <div class="learn-benefit">
+            <div class="learn-benefit-icon lb2">📈</div>
+            <div>
+              <h3>Your Watchlist Is Your Classroom</h3>
+              <p>Every answer uses your watchlist stocks as real examples. Ask about capital allocation and get context from the management scores Moatly already calculated. Learning has never been this relevant.</p>
+            </div>
+          </div>
+          <div class="learn-benefit">
+            <div class="learn-benefit-icon lb3">🔥</div>
+            <div>
+              <h3>Build Instincts That Take Years to Develop</h3>
+              <p>Daily concepts tied to your investing activity — building knowledge systematically, not randomly. Most investors take a decade to develop this pattern recognition. You don't have to.</p>
+            </div>
+          </div>
+          <div class="learn-benefit">
+            <div class="learn-benefit-icon lb4">💬</div>
+            <div>
+              <h3>Go Deep. It Follows Your Thinking.</h3>
+              <p>Ask follow-up questions without starting over. MoatlyAI holds full context so you can drill down. "How does that apply to Microsoft's moat score?" It follows your logic, not a script.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Chat Mockup -->
+      <div class="fade-up" style="transition-delay:0.15s">
+        <div class="chat-mockup">
+          <div class="chat-header">
+            <div class="chat-header-left">
+              <div class="chat-ai-dot"></div>
+              <div>
+                <div class="chat-title">MoatlyAI</div>
+                <div class="chat-subtitle">Value investing tutor</div>
+              </div>
+            </div>
+            <div class="chat-streak">🔥 7 day streak</div>
+          </div>
+
+          <div class="chat-body">
+            <!-- Daily question card -->
+            <div style="background: rgba(91,78,199,0.15); border: 1px solid rgba(91,78,199,0.25); border-radius: 12px; padding: 14px 16px; margin-bottom: 4px;">
+              <div style="font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--purple-light); margin-bottom: 6px;">Today's Question</div>
+              <div style="font-size: 13px; color: rgba(255,255,255,0.85); font-weight: 500; line-height: 1.5; margin-bottom: 10px;">Why do network effect businesses tend to get stronger as they grow — not weaker?</div>
+              <div style="display:flex; gap:8px;">
+                <div style="background: var(--purple); border-radius: 20px; padding: 6px 14px; font-size: 11px; font-weight: 700; color: white; cursor:pointer;">Explore this →</div>
+                <div style="background: rgba(255,255,255,0.08); border-radius: 20px; padding: 6px 14px; font-size: 11px; font-weight: 600; color: rgba(255,255,255,0.5); cursor:pointer;">Skip</div>
+              </div>
+            </div>
+
+            <div class="chat-msg user">
+              <div class="chat-avatar user-av">T</div>
+              <div class="chat-bubble user-bubble">What makes Visa's moat stronger than Uber's?</div>
+            </div>
+
+            <div class="chat-msg">
+              <div class="chat-avatar ai">✦</div>
+              <div class="chat-bubble ai">Visa's network effect is <strong>global and bilateral</strong> — every merchant accepts it because every cardholder has it, which attracts more cardholders. Uber's network effect is <strong>local and single-sided</strong> — it only works city by city. That's why Visa can reprice without losing anyone, while Uber still loses customers to Lyft in markets where both operate.</div>
+            </div>
+
+            <div class="chat-followup">
+              <div class="chat-followup-btn">How does UBER score in Moatly? →</div>
+              <div class="chat-followup-btn">What other moat types exist?</div>
+            </div>
+          </div>
+
+          <div class="chat-input-row">
+            <div class="chat-input-field">Ask anything about value investing...</div>
+            <div class="chat-send-btn">
+              <svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M13 7L1 1l3 6-3 6 12-6z" fill="white"/></svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Learn stats -->
+    <div class="learn-stats fade-up" style="transition-delay:0.2s">
+      <div class="learn-stat-item">
+        <div class="learn-stat-num">∞</div>
+        <div class="learn-stat-label">Questions<br>You Can Ask</div>
+      </div>
+      <div class="learn-stat-item">
+        <div class="learn-stat-num">Daily</div>
+        <div class="learn-stat-label">New Prompts to<br>Deepen Your Edge</div>
+      </div>
+      <div class="learn-stat-item">
+        <div class="learn-stat-num">1</div>
+        <div class="learn-stat-label">Tutor That Knows<br>Your Watchlist</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DAILY QUESTION STRIP -->
+<div class="daily-section">
+  <div class="daily-inner">
+    <div>
+      <div class="daily-label">MoatlyAI Learn</div>
+      <div class="daily-title">A new question.<br>Every single day.</div>
+    </div>
+    <div class="daily-cards">
+      <div class="daily-card">
+        <div class="daily-card-icon">🏰</div>
+        <div class="daily-card-text">What's the difference between a wide moat and a narrow moat — and why does it change your buy price?</div>
+        <div class="daily-card-arrow">→</div>
+      </div>
+      <div class="daily-card">
+        <div class="daily-card-icon">📉</div>
+        <div class="daily-card-text">When a great business reports one bad quarter, how do you decide if it's a buying opportunity or a warning sign?</div>
+        <div class="daily-card-arrow">→</div>
+      </div>
+      <div class="daily-card">
+        <div class="daily-card-icon">💰</div>
+        <div class="daily-card-text">Why is free cash flow more important than earnings when assessing business quality?</div>
+        <div class="daily-card-arrow">→</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PRINCIPLES STRIP -->
+<div class="principles-strip">
+  <div class="principles-inner">
+    <div class="principles-heading">Built on principles that have compounded wealth for generations.</div>
+    <div class="principles-list">
+      <div class="principle-item">
+        <h4>Price vs. Value — Always</h4>
+        <p>Price is what you pay. Value is what you get. Moatly calculates what a business is actually worth — not what the market says today. Your buy price is your edge.</p>
+      </div>
+      <div class="principle-item">
+        <h4>Know What You Own</h4>
+        <p>The Meaning score exists because conviction without understanding is speculation. Moatly is the only app that quantifies whether a stock belongs in your circle of competence.</p>
+      </div>
+      <div class="principle-item">
+        <h4>Discipline Compounded Is Wealth</h4>
+        <p>Great investors aren't smarter than everyone else — they're more disciplined. Moatly builds that discipline into every search, forcing the four questions that matter before you commit a dollar.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- HOW IT WORKS -->
+<div style="background: var(--paper);">
+  <div class="steps-section">
+    <div class="fade-up">
+      <p class="section-label">How It Works</p>
+      <h2 class="section-title">From curiosity to conviction<br>in under 10 minutes.</h2>
+    </div>
+
+      <div class="steps-grid fade-up" style="transition-delay:0.1s">
+      <div class="step-card">
+        <div class="step-num">Step 01</div>
+        <div class="step-icon" style="background:var(--purple-pale)">🔍</div>
+        <h3>Search any company</h3>
+        <p>Type any ticker or company name. Moatly instantly loads live financial data, calculates all four scores, and prepares MoatlyAI analysis — ready in seconds.</p>
+      </div>
+      <div class="step-card" style="background:var(--white);">
+        <div class="step-num">Step 02</div>
+        <div class="step-icon" style="background:rgba(200,169,110,0.10)">📊</div>
+        <h3>Check your 4M scores</h3>
+        <p>Meaning, MOAT, Management, and Margin of Safety — each scored from real fundamentals, calibrated to your circle of competence. Know instantly if this stock deserves deeper analysis.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">Step 03</div>
+        <div class="step-icon" style="background:rgba(91,78,199,0.08)">🤖</div>
+        <h3>Get contextual AI insight</h3>
+        <p>One tap. MoatlyAI delivers analysis tied to that company's live data — moat type, management quality, valuation context, and a clear verdict. Ask anything. Get answers grounded in the exact numbers you're looking at.</p>
+      </div>
+      <div class="step-card" style="background:var(--white);">
+        <div class="step-num">Step 04</div>
+        <div class="step-icon" style="background:rgba(45,106,79,0.08)">✅</div>
+        <h3>Invest with real conviction</h3>
+        <p>Know your exact buy price. Know why you're buying. Know what to monitor. Add to your watchlist and get alerted the moment the opportunity arrives. No guessing. Just conviction.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PRICING SECTION -->
+<section id="pricing" class="pricing-section">
+  <div class="pricing-inner">
+    <div class="pricing-intro fade-up">
+      <p class="section-label">Pricing</p>
+      <h2 class="section-title">Simple, honest pricing.<br>No hidden fees.</h2>
+      <p class="section-sub">Two tiers. One mission. Flat monthly rate — no commissions, no data fees, no surprises.</p>
+    </div>
+
+    <div class="pricing-grid fade-up" style="transition-delay:0.1s">
+
+      <!-- Tier 1 -->
+      <div class="pricing-card">
+        <div class="pricing-tier">Moatly</div>
+        <div class="pricing-name">Investor</div>
+        <div class="pricing-desc">The complete value investing framework. Rigorous analysis, live data, and everything you need to make confident investment decisions.</div>
+
+        <div class="pricing-price">
+          <div class="pricing-amount">$14</div>
+          <div style="display:flex;flex-direction:column;">
+            <span style="font-size:22px;font-weight:600;color:var(--ink)">.99</span>
+            <span class="pricing-period">/month</span>
+          </div>
+        </div>
+
+        <div class="pricing-trial">✓ 30-day free trial — no credit card required</div>
+
+        <div class="pricing-features">
+          <div class="pricing-section-label">Core Framework</div>
+          <div class="pricing-feature"><span class="pricing-check">✓</span> MOAT, Management & Margin of Safety scoring</div>
+          <div class="pricing-feature"><span class="pricing-check">✓</span> Big Five growth metric analysis</div>
+          <div class="pricing-feature"><span class="pricing-check">✓</span> Three valuation methods (MOS, 10-CAP, Payback)</div>
+          <div class="pricing-feature"><span class="pricing-check">✓</span> Live financial data — automatic, always current</div>
+          <div class="pricing-feature"><span class="pricing-check">✓</span> Scenario testing — adjust inputs, see results instantly</div>
+          <div class="pricing-divider"></div>
+          <div class="pricing-section-label">Tools</div>
+          <div class="pricing-feature"><span class="pricing-check">✓</span> Unlimited watchlist stocks</div>
+          <div class="pricing-feature"><span class="pricing-check">✓</span> Buy zone notifications</div>
+          <div class="pricing-feature"><span class="pricing-check">✓</span> Earnings calendar for watchlist stocks</div>
+          <div class="pricing-feature"><span class="pricing-check">✓</span> Dashboard with top opportunities</div>
+        </div>
+
+        <a href="#waitlist" class="pricing-btn pricing-btn-outline">Start Free Trial →</a>
+      </div>
+
+      <!-- Tier 2 -->
+      <div class="pricing-card featured">
+        <div class="pricing-popular">✦ Most Popular</div>
+        <div class="pricing-tier">Moatly + AI</div>
+        <div class="pricing-name">Investor + AI</div>
+        <div class="pricing-desc">Everything in Investor, plus MoatlyAI — deep analysis on every stock and an always-on value investing tutor in your pocket.</div>
+
+        <div class="pricing-price">
+          <div class="pricing-amount" style="color:var(--white)">$24</div>
+          <div style="display:flex;flex-direction:column;">
+            <span style="font-size:22px;font-weight:600;color:var(--white)">.99</span>
+            <span class="pricing-period">/month</span>
+          </div>
+        </div>
+
+        <div class="pricing-trial">✓ 30-day free trial — cancel anytime</div>
+
+        <div class="pricing-features">
+          <div class="pricing-section-label">Everything in Investor, plus:</div>
+          <div class="pricing-feature"><span class="pricing-ai-check">✦</span> MoatlyAI MOAT deep analysis — moat type, durability, radar shape, risk signals</div>
+          <div class="pricing-feature"><span class="pricing-ai-check">✦</span> MoatlyAI Management analysis — leadership quality, capital allocation, red flags</div>
+          <div class="pricing-feature"><span class="pricing-ai-check">✦</span> MoatlyAI Valuation context — what you must believe for the numbers to hold</div>
+          <div class="pricing-feature"><span class="pricing-ai-check">✦</span> Daily AI insight on your dashboard — personalized to your watchlist</div>
+          <div class="pricing-divider"></div>
+          <div class="pricing-section-label">MoatlyAI Learn</div>
+          <div class="pricing-feature"><span class="pricing-ai-check">✦</span> Unlimited AI tutor conversations — ask anything, anytime</div>
+          <div class="pricing-feature"><span class="pricing-ai-check">✦</span> Daily question prompts — build knowledge systematically</div>
+          <div class="pricing-feature"><span class="pricing-ai-check">✦</span> Learning streak — track your progress, build the habit</div>
+          <div class="pricing-feature"><span class="pricing-ai-check">✦</span> Watchlist-aware answers — context from your actual portfolio</div>
+        </div>
+
+        <a href="#waitlist" class="pricing-btn pricing-btn-filled">Start Free Trial →</a>
+      </div>
+
+    </div>
+
+    <div class="pricing-note fade-up" style="transition-delay:0.2s">
+      Annual plans available at 20% off · Cancel anytime · No commissions · No trading execution
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonial-section">
+  <div class="testimonial-inner">
+    <div style="text-align:center;" class="fade-up">
+      <p class="section-label" style="color:var(--purple-light)">Early Feedback</p>
+      <h2 class="section-title" style="color:var(--white); max-width:600px; margin: 0 auto;">What beta testers are saying.</h2>
+    </div>
+
+    <div class="testimonial-grid fade-up" style="transition-delay:0.1s">
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <div class="testimonial-text">"I asked MoatlyAI why Microsoft's management score was so high while the FCF was declining. It explained the entire AI capex cycle in the context of MSFT's actual numbers. One conversation replaced two hours of reading analyst reports."</div>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar" style="background:var(--purple)">JR</div>
+          <div>
+            <div class="testimonial-name">James R.</div>
+            <div class="testimonial-role">Individual Investor, 12 years</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <div class="testimonial-text">"The Meaning score stopped me from buying a stock I thought I understood. When I answered the five conviction questions honestly, I realized I couldn't explain how it made money. That question saved me from a position I had no business owning."</div>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar" style="background:var(--green)">SK</div>
+          <div>
+            <div class="testimonial-name">Sarah K.</div>
+            <div class="testimonial-role">Portfolio Manager</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <div class="testimonial-text">"I've used Bloomberg, Morningstar, Seeking Alpha. None of them teach you to think like an investor — they just give you more data to get lost in. Moatly gave me a framework and an AI that explains every number. I'm making better decisions in 10 minutes than I was making in four hours."</div>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar" style="background:#C8A96E; color: #0A0D12">MT</div>
+          <div>
+            <div class="testimonial-name">Michael T.</div>
+            <div class="testimonial-role">Self-directed investor</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA / WAITLIST -->
+<section class="cta-section" id="waitlist">
+  <div class="cta-bg"></div>
+
+  <div class="cta-urgency fade-up">
+    🔒 Limited early access spots — Coming Soon
+  </div>
+
+  <p class="section-label fade-up">Join the Waitlist</p>
+  <h2 class="section-title fade-up" style="transition-delay:0.05s">The best investors act<br>before the crowd does.</h2>
+  <p class="section-sub fade-up" style="transition-delay:0.1s; margin: 0 auto 48px;">Early access members get priority onboarding, launch-day pricing locked in, and first access to every MoatlyAI feature the moment it ships. The framework is built. The AI is ready. Your watchlist is waiting.</p>
+
+  <div class="cta-form fade-up" style="transition-delay:0.15s" id="cta-form-wrap">
+    <input class="cta-input" type="email" id="cta-email" placeholder="Your email address" />
+    <button class="cta-btn" onclick="handleCtaSignup()">Claim My Spot →</button>
+  </div>
+
+  <div class="success-msg" id="success-msg">
+    <div class="success-icon">🎉</div>
+    <div class="success-title">You're on the list!</div>
+    <div class="success-text">We'll be in touch before launch with your early access invite. In the meantime, start thinking about the next great business you want to analyze.</div>
+  </div>
+
+  <div class="cta-perks fade-up" style="transition-delay:0.2s">
+    <div class="cta-perk">✓ Free to join</div>
+    <div class="cta-perk">✓ No credit card</div>
+    <div class="cta-perk">✓ Launch-day pricing</div>
+    <div class="cta-perk">✓ 30-day free trial at launch</div>
+    <div class="cta-perk">✓ Unsubscribe anytime</div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Moatly</div>
+  <div class="footer-links">
+    <a href="#">About</a>
+    <a href="#">Privacy</a>
+    <a href="#">Terms</a>
+    <a href="mailto:hello@getmoatly.com">Contact</a>
+  </div>
+  <div class="footer-copy">© 2026 Moatly. Built for investors who think before they buy.</div>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  function handleHeroSignup() {
+    const email = document.getElementById('hero-email').value.trim();
+    if (!email || !email.includes('@')) {
+      document.getElementById('hero-email').style.borderColor = '#BC4749';
+      setTimeout(() => document.getElementById('hero-email').style.borderColor = '', 1200);
+      return;
+    }
+    document.getElementById('hero-email').value = '';
+    const btn = document.querySelector('.hero-btn');
+    btn.textContent = "🎉 You're on the list!";
+    btn.style.background = 'var(--green)';
+    setTimeout(() => { btn.textContent = 'Get Early Access — Free'; btn.style.background = ''; }, 3000);
+  }
+
+  function handleCtaSignup() {
+    const email = document.getElementById('cta-email').value.trim();
+    if (!email || !email.includes('@')) {
+      document.getElementById('cta-email').style.borderColor = '#BC4749';
+      setTimeout(() => document.getElementById('cta-email').style.borderColor = '', 1200);
+      return;
+    }
+    document.getElementById('cta-form-wrap').style.display = 'none';
+    document.getElementById('success-msg').classList.add('visible');
+  }
+
+  document.getElementById('hero-email').addEventListener('keydown', e => { if (e.key === 'Enter') handleHeroSignup(); });
+  document.getElementById('cta-email').addEventListener('keydown', e => { if (e.key === 'Enter') handleCtaSignup(); });
+</script>
+</body>
+</html>
