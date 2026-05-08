@@ -859,7 +859,9 @@
     .four-m-grid, .testimonial-grid, .pricing-grid { grid-template-columns: 1fr; }
     .features-split, .ai-split, .learn-split { grid-template-columns: 1fr; gap: 60px; }
     .steps-grid { grid-template-columns: 1fr 1fr; }
-    .phone-mockup-wrap, .ai-card, .chat-mockup { display: none; }
+    .phone-mockup-wrap { display: flex; justify-content: center; }
+    .phone-frame { width: 220px; height: 440px; border-radius: 36px; }
+    .ai-card, .chat-mockup { display: block; width: 100%; overflow-x: auto; }
     .dark-section { padding: 80px 20px; }
     .learn-section { padding: 80px 20px; }
     .principles-inner { grid-template-columns: 1fr; gap: 32px; }
@@ -1558,9 +1560,9 @@
     <a href="#">About</a>
     <a href="#">Privacy</a>
     <a href="#">Terms</a>
-    <a href="mailto:hello@getmoatly.com">Contact</a>
+    <a href="mailto:info@getmoatly.com">Contact</a>
   </div>
-  <div class="footer-copy">© 2026 Moatly. Built for investors who think before they buy.</div>
+  <div class="footer-copy">© 2026 Moatly. Built for investors to provide confidence & conviction.</div>
 </footer>
 
 <script>
@@ -1569,27 +1571,42 @@
   }, { threshold: 0.12 });
   document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 
-  function handleHeroSignup() {
-    const email = document.getElementById('hero-email').value.trim();
+  const BREVO_URL = 'https://a30954e1.sibforms.com/serve/MUIFAKlQlJtSETMMj3GKjKG8aqBlJeY-yvnmg14uACjYS6bNc-X_rdPIrrZ4QuuB4_HzMWS0JwtPutzIpk8NwCGECwi_vFt_Bl2kaJuhojNVGweWxkfA2V7sHyQw1yQbPxmc0_N5yUf7QKeSTexAjiawd9Y4_0UsDhvfjEbj9IRY3yVVvHcLpq-bqe7GCgRNSafk3ZqH5py5smDglQ==';
+
+  async function submitToBrevo(email) {
+    const formData = new FormData();
+    formData.append('EMAIL', email);
+    formData.append('email_address_check', '');
+    formData.append('locale', 'en');
+    formData.append('html_type', 'simple');
+    try { await fetch(BREVO_URL, { method: 'POST', body: formData, mode: 'no-cors' }); } catch(e) {}
+  }
+
+  async function handleHeroSignup() {
+    const emailEl = document.getElementById('hero-email');
+    const email = emailEl.value.trim();
     if (!email || !email.includes('@')) {
-      document.getElementById('hero-email').style.borderColor = '#BC4749';
-      setTimeout(() => document.getElementById('hero-email').style.borderColor = '', 1200);
+      emailEl.style.borderColor = '#BC4749';
+      setTimeout(() => emailEl.style.borderColor = '', 1200);
       return;
     }
-    document.getElementById('hero-email').value = '';
+    await submitToBrevo(email);
+    emailEl.value = '';
     const btn = document.querySelector('.hero-btn');
-    btn.textContent = "🎉 You're on the list!";
+    btn.textContent = "You're on the list!";
     btn.style.background = 'var(--green)';
     setTimeout(() => { btn.textContent = 'Get Early Access — Free'; btn.style.background = ''; }, 3000);
   }
 
-  function handleCtaSignup() {
-    const email = document.getElementById('cta-email').value.trim();
+  async function handleCtaSignup() {
+    const emailEl = document.getElementById('cta-email');
+    const email = emailEl.value.trim();
     if (!email || !email.includes('@')) {
-      document.getElementById('cta-email').style.borderColor = '#BC4749';
-      setTimeout(() => document.getElementById('cta-email').style.borderColor = '', 1200);
+      emailEl.style.borderColor = '#BC4749';
+      setTimeout(() => emailEl.style.borderColor = '', 1200);
       return;
     }
+    await submitToBrevo(email);
     document.getElementById('cta-form-wrap').style.display = 'none';
     document.getElementById('success-msg').classList.add('visible');
   }
