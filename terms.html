@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Terms of Service — Moatly</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --ink: #0A0D12; --ink-80: #0A0D12CC; --ink-40: #0A0D1266; --ink-10: #0A0D121A;
+    --paper: #F8F5F0; --paper-dark: #EDE9E2; --night: #080C18;
+    --purple: #5b4ec7; --purple-light: #7b70d4; --purple-pale: rgba(91,78,199,0.10);
+    --gold: #C8A96E; --white: #FFFFFF;
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Syne', sans-serif; background: var(--paper); color: var(--ink); -webkit-font-smoothing: antialiased; }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    padding: 20px 40px; display: flex; align-items: center; justify-content: space-between;
+    background: rgba(248,245,240,0.88); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(10,13,18,0.06);
+  }
+  .nav-logo { display: flex; align-items: center; gap: 10px; font-size: 20px; font-weight: 700; letter-spacing: -0.5px; color: var(--ink); text-decoration: none; }
+  .nav-logo-icon { width: 32px; height: 32px; background: var(--purple); border-radius: 8px; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 14px rgba(91,78,199,0.35); }
+  .nav-logo-icon svg { width: 18px; height: 18px; }
+  .nav-links { display: flex; align-items: center; gap: 32px; }
+  .nav-link { font-size: 14px; font-weight: 600; color: var(--ink-80); text-decoration: none; transition: color 0.2s; }
+  .nav-link:hover { color: var(--purple); }
+  .nav-cta { background: var(--purple); color: var(--white); border: none; padding: 10px 22px; border-radius: 100px; font-family: 'Syne', sans-serif; font-size: 14px; font-weight: 600; cursor: pointer; text-decoration: none; box-shadow: 0 4px 16px rgba(91,78,199,0.3); transition: background 0.2s; }
+  .nav-cta:hover { background: var(--purple-light); }
+
+  /* PAGE HEADER */
+  .page-header { padding: 140px 40px 60px; text-align: center; border-bottom: 1px solid var(--paper-dark); }
+  .page-header .label { font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--purple); display: block; margin-bottom: 16px; }
+  .page-header h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(42px, 6vw, 72px); font-weight: 400; letter-spacing: -1.5px; line-height: 1.05; color: var(--ink); margin-bottom: 16px; }
+  .page-header .meta { font-size: 14px; font-weight: 500; color: var(--ink-40); }
+
+  /* CONTENT */
+  .content { max-width: 720px; margin: 0 auto; padding: 72px 40px 120px; }
+  .content h2 { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 500; letter-spacing: -0.5px; color: var(--ink); margin: 52px 0 16px; }
+  .content h2:first-child { margin-top: 0; }
+  .content h3 { font-size: 15px; font-weight: 700; color: var(--ink); margin: 28px 0 10px; }
+  .content p { font-size: 15px; font-weight: 400; color: var(--ink-80); line-height: 1.8; margin-bottom: 16px; }
+  .content ul { padding-left: 20px; margin-bottom: 16px; }
+  .content li { font-size: 15px; color: var(--ink-80); line-height: 1.8; margin-bottom: 6px; }
+  .content a { color: var(--purple); text-decoration: underline; }
+  .content strong { color: var(--ink); font-weight: 700; }
+  .divider { height: 1px; background: var(--paper-dark); margin: 52px 0; }
+  .disclaimer-box { background: var(--white); border: 1.5px solid var(--paper-dark); border-left: 4px solid var(--purple); border-radius: 0 12px 12px 0; padding: 24px 28px; margin: 24px 0; }
+  .disclaimer-box p { margin-bottom: 10px; }
+  .disclaimer-box p:last-child { margin-bottom: 0; }
+
+  /* FOOTER */
+  footer { background: var(--ink); padding: 48px 40px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px; }
+  .footer-logo { font-size: 16px; font-weight: 700; color: var(--white); }
+  .footer-links { display: flex; gap: 28px; }
+  .footer-links a { font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.4); text-decoration: none; transition: color 0.2s; }
+  .footer-links a:hover { color: rgba(255,255,255,0.8); }
+  .footer-copy { font-size: 13px; color: rgba(255,255,255,0.4); }
+
+  @media (max-width: 768px) {
+    nav { padding: 16px 20px; }
+    .nav-links { display: none; }
+    .page-header { padding: 120px 24px 48px; }
+    .content { padding: 48px 24px 80px; }
+    footer { padding: 32px 20px; flex-direction: column; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="/">
+    <div class="nav-logo-icon">
+      <svg viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M9 2L14 6V12L9 16L4 12V6L9 2Z" stroke="#FFFFFF" stroke-width="1.5" stroke-linejoin="round"/>
+        <path d="M9 5L12 7.5V11L9 13.5L6 11V7.5L9 5Z" fill="#FFFFFF" opacity="0.35"/>
+      </svg>
+    </div>
+    Moatly
+  </a>
+  <div class="nav-links">
+    <a class="nav-link" href="/#framework">The Framework</a>
+    <a class="nav-link" href="/#moatlyai">MoatlyAI</a>
+    <a class="nav-link" href="/#pricing">Pricing</a>
+  </div>
+  <a class="nav-cta" href="/#waitlist">Get Early Access</a>
+</nav>
+
+<div class="page-header">
+  <span class="label">Legal</span>
+  <h1>Terms of Service</h1>
+  <p class="meta">Last Updated: May 25, 2026 &nbsp;·&nbsp; Effective Date: May 25, 2026</p>
+</div>
+
+<div class="content">
+
+  <h2>1. Acceptance of Terms</h2>
+  <p>By downloading, installing, or using the Moatly mobile application ("App") or visiting getmoatly.com ("Website"), you agree to be bound by these Terms of Service ("Terms"). If you do not agree to these Terms, do not use the App or Website.</p>
+  <p>These Terms constitute a legally binding agreement between you and Moatly LLC ("Moatly," "we," "us," or "our"), a limited liability company registered in the State of Wyoming, United States.</p>
+
+  <div class="divider"></div>
+
+  <h2>2. Eligibility</h2>
+  <p>You must be at least 18 years of age to use Moatly. By using the App, you represent and warrant that you are 18 years of age or older and have the legal capacity to enter into these Terms. The App is not intended for use by minors. If you are under 18, do not use or access the App.</p>
+
+  <div class="divider"></div>
+
+  <h2>3. Description of Service</h2>
+  <p>Moatly is a self-directed value investing analysis application built around the 4M framework — Meaning, MOAT, Management, and Margin of Safety. The App provides:</p>
+  <ul>
+    <li>Automated financial data retrieval and analysis</li>
+    <li>Scoring across four investment dimensions (Meaning, MOAT, Management, Margin of Safety)</li>
+    <li>Valuation calculations using multiple methods (Intrinsic Value, 10-CAP, Payback Time)</li>
+    <li>Watchlist management and value zone alerts</li>
+    <li>AI-powered insights via MoatlyAI (available on Investor + AI plan only)</li>
+    <li>An AI investing tutor and chat feature (Investor + AI plan only)</li>
+  </ul>
+
+  <div class="divider"></div>
+
+  <h2>4. Not Investment Advice</h2>
+  <div class="disclaimer-box">
+    <p><strong>IMPORTANT DISCLAIMER — PLEASE READ CAREFULLY</strong></p>
+    <p>Moatly is an educational and analytical tool. Nothing in the App, Website, or any communication from Moatly constitutes investment advice, financial advice, legal advice, tax advice, or a recommendation to buy, sell, or hold any security.</p>
+  </div>
+  <p>All scores, valuations, analyses, and AI-generated insights provided by Moatly are for <strong>informational and educational purposes only</strong>. They are based on publicly available financial data and algorithmic calculations. They do not account for your personal financial situation, risk tolerance, investment objectives, or tax circumstances.</p>
+  <p>MoatlyAI insights are generated by artificial intelligence and may contain errors, omissions, or outdated information. AI-generated content should not be relied upon as the sole basis for any investment decision.</p>
+  <p><strong>You are solely responsible for your investment decisions.</strong> Always conduct your own due diligence and consult a qualified financial advisor before making any investment. Past performance of any stock or analysis methodology does not guarantee future results. Investing involves risk, including the possible loss of principal.</p>
+  <p>Financial data displayed in the App is sourced from third-party providers and Moatly does not guarantee its accuracy, completeness, or timeliness.</p>
+
+  <div class="divider"></div>
+
+  <h2>5. Subscriptions and Billing</h2>
+
+  <h3>5.1 Subscription Plans</h3>
+  <p>Moatly offers the following auto-renewing subscription plans: Moatly Investor at $14.99 per month and Moatly Investor + AI at $24.99 per month. Annual plans are available at a 20% discount.</p>
+
+  <h3>5.2 Free Trial</h3>
+  <p>Each plan includes a 30-day free trial for new subscribers. You will not be charged until the free trial period ends. If you cancel before the trial ends, you will not be charged. Only one free trial is available per Apple ID or Google account per subscription tier.</p>
+
+  <h3>5.3 Auto-Renewal</h3>
+  <p>Subscriptions automatically renew at the end of each billing period unless cancelled at least 24 hours before the renewal date. Your payment method on file with Apple or Google will be charged at the then-current subscription rate upon renewal.</p>
+
+  <h3>5.4 Upgrades</h3>
+  <p>If you upgrade from Moatly Investor to Moatly Investor + AI, the upgrade takes effect immediately. Because both plans are within the same subscription group, you will not receive a new free trial upon upgrading. Billing will be prorated according to Apple App Store or Google Play Store policies.</p>
+
+  <h3>5.5 Cancellation</h3>
+  <p>You may cancel your subscription at any time through iOS Settings → Apple ID → Subscriptions → Moatly, or through the Google Play Store → Subscriptions → Moatly. Cancellation takes effect at the end of the current billing period. Moatly does not process cancellations directly and does not issue refunds except as required by applicable law or Apple/Google refund policies.</p>
+
+  <h3>5.6 Price Changes</h3>
+  <p>Moatly reserves the right to change subscription prices. You will be notified of price changes in advance, and the new price will apply upon your next renewal. Continued use of the App after a price change constitutes acceptance of the new price.</p>
+
+  <h3>5.7 Billing Management</h3>
+  <p>All billing is managed through Apple App Store (iOS) or Google Play Store (Android). Moatly does not store your payment information. Refund requests must be directed to Apple or Google in accordance with their respective policies.</p>
+
+  <div class="divider"></div>
+
+  <h2>6. User Accounts</h2>
+
+  <h3>6.1 Account Creation</h3>
+  <p>To use Moatly, you must create an account using a valid email address. You are responsible for maintaining the confidentiality of your account credentials and for all activity that occurs under your account.</p>
+
+  <h3>6.2 Accurate Information</h3>
+  <p>You agree to provide accurate, current, and complete information when creating your account and to update your information as necessary.</p>
+
+  <h3>6.3 Account Security</h3>
+  <p>You must notify us immediately at <a href="mailto:info@getmoatly.com">info@getmoatly.com</a> if you suspect any unauthorized use of your account. Moatly is not liable for any loss resulting from unauthorized use of your account.</p>
+
+  <h3>6.4 One Account Per User</h3>
+  <p>Each user may maintain only one account. Creating multiple accounts to circumvent subscription restrictions, free trials, or any other limitation is prohibited.</p>
+
+  <div class="divider"></div>
+
+  <h2>7. Acceptable Use</h2>
+  <p>You agree not to use the App for any unlawful purpose; reproduce or distribute any content without permission; attempt to reverse engineer or decompile the App; use automated tools or scrapers to extract data; share your account credentials with others; interfere with the App's performance or servers; or use the App in any way that could harm Moatly's reputation or business.</p>
+
+  <div class="divider"></div>
+
+  <h2>8. Intellectual Property</h2>
+  <p>The App, Website, and all content, features, functionality, logos, trademarks, and software are owned by Moatly LLC and protected by applicable intellectual property laws. You are granted a limited, non-exclusive, non-transferable, revocable license to use the App for personal, non-commercial purposes. Financial data displayed in the App is sourced from third-party providers and remains their property. By submitting feedback or other content, you grant Moatly a non-exclusive, royalty-free license to use such content to provide and improve the service.</p>
+
+  <div class="divider"></div>
+
+  <h2>9. Third-Party Services</h2>
+  <p>Moatly integrates with third-party services including Supabase (database and authentication), RevenueCat (subscription management), Financial Modeling Prep (financial data), and Anthropic (AI model powering MoatlyAI). Your use of the App may be subject to the terms and privacy policies of these providers. Moatly is not responsible for the practices, content, or availability of third-party services.</p>
+
+  <div class="divider"></div>
+
+  <h2>10. Disclaimers and Limitation of Liability</h2>
+  <p>THE APP IS PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED. MOATLY DOES NOT WARRANT THAT THE APP WILL BE UNINTERRUPTED OR ERROR-FREE.</p>
+  <p>TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, MOATLY SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, INCLUDING LOSS OF PROFITS, DATA, OR INVESTMENT LOSSES, ARISING OUT OF YOUR USE OF THE APP. MOATLY'S TOTAL LIABILITY SHALL NOT EXCEED THE AMOUNT YOU PAID IN THE THREE MONTHS PRECEDING THE CLAIM.</p>
+  <p>MOATLY EXPRESSLY DISCLAIMS ALL LIABILITY FOR ANY FINANCIAL OR INVESTMENT LOSSES ARISING FROM YOUR RELIANCE ON ANY INFORMATION, SCORE, OR AI-GENERATED CONTENT PROVIDED THROUGH THE APP. ALL CONTENT IS FOR EDUCATIONAL AND INFORMATIONAL PURPOSES ONLY AND DOES NOT CONSTITUTE A BUY OR SELL SIGNAL OF ANY KIND.</p>
+
+  <div class="divider"></div>
+
+  <h2>11. Indemnification</h2>
+  <p>You agree to indemnify and hold harmless Moatly LLC and its officers, directors, employees, and agents from any claims, liabilities, damages, losses, and expenses (including legal fees) arising out of your use of the App, your violation of these Terms, or any investment decisions you make based on App content.</p>
+
+  <div class="divider"></div>
+
+  <h2>12. Termination</h2>
+  <p>You may terminate your account at any time by cancelling your subscription and contacting us at <a href="mailto:info@getmoatly.com">info@getmoatly.com</a>. Moatly reserves the right to suspend or terminate your account at any time for violation of these Terms or any other reason at our sole discretion. Upon termination, your right to use the App ceases immediately.</p>
+
+  <div class="divider"></div>
+
+  <h2>13. Governing Law and Dispute Resolution</h2>
+  <p>These Terms are governed by the laws of the State of Wyoming, United States, without regard to conflict of law principles. Any dispute shall first be attempted to be resolved through informal negotiation. If not resolved within 30 days, disputes shall be resolved through binding arbitration in accordance with the American Arbitration Association rules. You waive any right to participate in class action lawsuits or class-wide arbitration.</p>
+
+  <div class="divider"></div>
+
+  <h2>14. Changes to These Terms</h2>
+  <p>Moatly reserves the right to update these Terms at any time. We will notify you of material changes via in-app notification or email. Your continued use of the App after the effective date constitutes acceptance of the changes.</p>
+
+  <div class="divider"></div>
+
+  <h2>15. App Store Additional Terms</h2>
+  <p>If you downloaded the App from the Apple App Store: these Terms are between you and Moatly only, not Apple; Apple has no obligation to provide maintenance or support; Apple is not responsible for any claims related to the App; and Apple is a third-party beneficiary of these Terms. If you downloaded the App from the Google Play Store, these Terms are between you and Moatly only, not Google.</p>
+
+  <div class="divider"></div>
+
+  <h2>16. Contact</h2>
+  <p><strong>Moatly LLC</strong><br>
+  Email: <a href="mailto:info@getmoatly.com">info@getmoatly.com</a><br>
+  Website: <a href="https://getmoatly.com">getmoatly.com</a></p>
+
+</div>
+
+<footer>
+  <div class="footer-logo">Moatly</div>
+  <div class="footer-links">
+    <a href="/">Home</a>
+    <a href="/privacy.html">Privacy Policy</a>
+    <a href="/terms.html">Terms of Service</a>
+    <a href="mailto:info@getmoatly.com">Contact</a>
+  </div>
+  <div class="footer-copy">© 2026 Moatly LLC. Invest with Conviction.</div>
+</footer>
+
+</body>
+</html>

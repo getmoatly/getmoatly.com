@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy — Moatly</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --ink: #0A0D12; --ink-80: #0A0D12CC; --ink-40: #0A0D1266; --ink-10: #0A0D121A;
+    --paper: #F8F5F0; --paper-dark: #EDE9E2; --night: #080C18;
+    --purple: #5b4ec7; --purple-light: #7b70d4; --purple-pale: rgba(91,78,199,0.10);
+    --gold: #C8A96E; --white: #FFFFFF;
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Syne', sans-serif; background: var(--paper); color: var(--ink); -webkit-font-smoothing: antialiased; }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    padding: 20px 40px; display: flex; align-items: center; justify-content: space-between;
+    background: rgba(248,245,240,0.88); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(10,13,18,0.06);
+  }
+  .nav-logo { display: flex; align-items: center; gap: 10px; font-size: 20px; font-weight: 700; letter-spacing: -0.5px; color: var(--ink); text-decoration: none; }
+  .nav-logo-icon { width: 32px; height: 32px; background: var(--purple); border-radius: 8px; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 14px rgba(91,78,199,0.35); }
+  .nav-logo-icon svg { width: 18px; height: 18px; }
+  .nav-links { display: flex; align-items: center; gap: 32px; }
+  .nav-link { font-size: 14px; font-weight: 600; color: var(--ink-80); text-decoration: none; transition: color 0.2s; }
+  .nav-link:hover { color: var(--purple); }
+  .nav-cta { background: var(--purple); color: var(--white); border: none; padding: 10px 22px; border-radius: 100px; font-family: 'Syne', sans-serif; font-size: 14px; font-weight: 600; cursor: pointer; text-decoration: none; box-shadow: 0 4px 16px rgba(91,78,199,0.3); transition: background 0.2s; }
+  .nav-cta:hover { background: var(--purple-light); }
+
+  /* PAGE HEADER */
+  .page-header { padding: 140px 40px 60px; text-align: center; border-bottom: 1px solid var(--paper-dark); }
+  .page-header .label { font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--purple); display: block; margin-bottom: 16px; }
+  .page-header h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(42px, 6vw, 72px); font-weight: 400; letter-spacing: -1.5px; line-height: 1.05; color: var(--ink); margin-bottom: 16px; }
+  .page-header .meta { font-size: 14px; font-weight: 500; color: var(--ink-40); }
+
+  /* CONTENT */
+  .content { max-width: 720px; margin: 0 auto; padding: 72px 40px 120px; }
+  .content h2 { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 500; letter-spacing: -0.5px; color: var(--ink); margin: 52px 0 16px; }
+  .content h2:first-child { margin-top: 0; }
+  .content h3 { font-size: 15px; font-weight: 700; color: var(--ink); margin: 28px 0 10px; }
+  .content p { font-size: 15px; font-weight: 400; color: var(--ink-80); line-height: 1.8; margin-bottom: 16px; }
+  .content ul { padding-left: 20px; margin-bottom: 16px; }
+  .content li { font-size: 15px; color: var(--ink-80); line-height: 1.8; margin-bottom: 6px; }
+  .content a { color: var(--purple); text-decoration: underline; }
+  .content strong { color: var(--ink); font-weight: 700; }
+  .divider { height: 1px; background: var(--paper-dark); margin: 52px 0; }
+  .disclaimer-box { background: var(--white); border: 1.5px solid var(--paper-dark); border-left: 4px solid var(--purple); border-radius: 0 12px 12px 0; padding: 24px 28px; margin: 24px 0; }
+  .disclaimer-box p { margin-bottom: 10px; }
+  .disclaimer-box p:last-child { margin-bottom: 0; }
+
+  /* FOOTER */
+  footer { background: var(--ink); padding: 48px 40px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px; }
+  .footer-logo { font-size: 16px; font-weight: 700; color: var(--white); }
+  .footer-links { display: flex; gap: 28px; }
+  .footer-links a { font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.4); text-decoration: none; transition: color 0.2s; }
+  .footer-links a:hover { color: rgba(255,255,255,0.8); }
+  .footer-copy { font-size: 13px; color: rgba(255,255,255,0.4); }
+
+  @media (max-width: 768px) {
+    nav { padding: 16px 20px; }
+    .nav-links { display: none; }
+    .page-header { padding: 120px 24px 48px; }
+    .content { padding: 48px 24px 80px; }
+    footer { padding: 32px 20px; flex-direction: column; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="/">
+    <div class="nav-logo-icon">
+      <svg viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M9 2L14 6V12L9 16L4 12V6L9 2Z" stroke="#FFFFFF" stroke-width="1.5" stroke-linejoin="round"/>
+        <path d="M9 5L12 7.5V11L9 13.5L6 11V7.5L9 5Z" fill="#FFFFFF" opacity="0.35"/>
+      </svg>
+    </div>
+    Moatly
+  </a>
+  <div class="nav-links">
+    <a class="nav-link" href="/#framework">The Framework</a>
+    <a class="nav-link" href="/#moatlyai">MoatlyAI</a>
+    <a class="nav-link" href="/#pricing">Pricing</a>
+  </div>
+  <a class="nav-cta" href="/#waitlist">Get Early Access</a>
+</nav>
+
+<div class="page-header">
+  <span class="label">Legal</span>
+  <h1>Privacy Policy</h1>
+  <p class="meta">Last Updated: May 25, 2026 &nbsp;·&nbsp; Effective Date: May 25, 2026</p>
+</div>
+
+<div class="content">
+
+  <h2>1. Introduction</h2>
+  <p>Moatly LLC ("Moatly," "we," "us," or "our"), a limited liability company registered in the State of Wyoming, United States, is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use the Moatly mobile application ("App") or visit our website at getmoatly.com ("Website").</p>
+  <p>By using the App or Website, you agree to the practices described in this Policy. If you do not agree, please discontinue use of the App and Website.</p>
+
+  <div class="divider"></div>
+
+  <h2>2. Information We Collect</h2>
+
+  <h3>2.1 Information You Provide Directly</h3>
+  <p>When you create an account or use the App, we collect your email address, first name, last name, and phone number. We also collect profile information including your self-identified areas of passion, talent, and financial interest (used to personalize your Meaning score and Circle of Competence), as well as your watchlist stocks, conviction check responses, and scenario modeling inputs.</p>
+
+  <h3>2.2 Information Collected Automatically</h3>
+  <p>When you use the App, we automatically collect usage data (features accessed, screens viewed, ticker searches, session duration), device information (device type, OS version, unique device identifiers, App version), subscription data (tier, status, history), and crash and performance data to help us improve the App.</p>
+
+  <h3>2.3 AI Interaction Data</h3>
+  <p>If you use MoatlyAI features (available on Investor + AI plan), your questions and conversations with MoatlyAI may be processed and temporarily stored to provide contextual responses. We also store records of which stocks you request AI analysis for and the insights generated.</p>
+
+  <h3>2.4 Information from Third Parties</h3>
+  <p>We receive subscription purchase confirmations, renewal events, and cancellation events from Apple and Google via RevenueCat. Financial data associated with tickers you search is sourced from third-party providers and is not linked to your personal identity.</p>
+
+  <div class="divider"></div>
+
+  <h2>3. How We Use Your Information</h2>
+  <p>We use the information we collect to provide and manage your account and subscription, calculate your personalized 4M scores, deliver MoatlyAI insights, improve the App, communicate important account and subscription updates, detect fraud and unauthorized access, and comply with applicable legal obligations.</p>
+  <p>We do not use your personal information to make automated investment decisions on your behalf. All investment decisions remain solely yours.</p>
+
+  <div class="divider"></div>
+
+  <h2>4. How We Share Your Information</h2>
+
+  <div class="disclaimer-box">
+    <p><strong>We do not sell your personal information.</strong> We share your information only in the limited circumstances described below.</p>
+  </div>
+
+  <h3>4.1 Service Providers</h3>
+  <p>We share information with trusted third-party service providers: <strong>Supabase</strong> for database, authentication, and storage; <strong>RevenueCat</strong> for subscription and purchase management; <strong>Financial Modeling Prep</strong> for financial data; and <strong>Anthropic</strong> for the AI model powering MoatlyAI. These providers are contractually obligated to use your information only as directed by us.</p>
+
+  <h3>4.2 Legal Requirements</h3>
+  <p>We may disclose your information if required to do so by law, court order, or governmental authority, or if we believe disclosure is necessary to protect our rights or the safety of others.</p>
+
+  <h3>4.3 Business Transfers</h3>
+  <p>If Moatly is involved in a merger, acquisition, or sale of assets, your information may be transferred as part of that transaction. We will notify you before your information becomes subject to a different privacy policy.</p>
+
+  <div class="divider"></div>
+
+  <h2>5. Data Retention</h2>
+  <p>We retain account data until you delete your account. Usage and analytics data is retained for up to 24 months in identifiable form, then aggregated or deleted. AI conversation data is retained for up to 12 months to provide contextual responses. Subscription records are retained for up to 7 years for financial and legal compliance. After account deletion, we may retain anonymized, aggregated data that cannot be used to identify you.</p>
+
+  <div class="divider"></div>
+
+  <h2>6. Data Security</h2>
+  <p>We implement industry-standard security measures including TLS/HTTPS encryption for data in transit, encrypted storage via Supabase, row-level security policies ensuring users can only access their own data, and regular security reviews. No method of transmission or storage is 100% secure. You are responsible for maintaining the security of your account credentials.</p>
+
+  <div class="divider"></div>
+
+  <h2>7. Your Rights and Choices</h2>
+  <p>You may access and update your account information at any time through the App's Settings page. You may request deletion of your account and personal data by contacting us at <a href="mailto:info@getmoatly.com">info@getmoatly.com</a> — we will process your request within 30 days. You may request a copy of your personal data in a portable format at any time. You may opt out of marketing emails via the unsubscribe link in any email. You may control push notifications through your device settings at any time.</p>
+
+  <div class="divider"></div>
+
+  <h2>8. California Residents — CCPA Rights</h2>
+  <p>If you are a California resident, you have the right to know what personal information we collect about you, the right to delete your personal information, and the right to non-discrimination for exercising your rights. <strong>We do not sell your personal information</strong> — you do not need to opt out. To exercise your rights, contact us at <a href="mailto:info@getmoatly.com">info@getmoatly.com</a> with the subject line "California Privacy Request." We will respond within 45 days.</p>
+
+  <div class="divider"></div>
+
+  <h2>9. European Users — GDPR Rights</h2>
+  <p>If you are located in the European Economic Area, United Kingdom, or Switzerland, you have the right to access, correct, delete, restrict, and port your personal data, and to object to processing. We process your data on the following legal bases: contract performance (to fulfill your subscription), legitimate interests (to improve the App and ensure security), consent (for optional communications), and legal obligation (to comply with applicable laws). To exercise your GDPR rights, contact us at <a href="mailto:info@getmoatly.com">info@getmoatly.com</a>. We will respond within 30 days. You also have the right to lodge a complaint with your local data protection authority.</p>
+
+  <div class="divider"></div>
+
+  <h2>10. Children's Privacy</h2>
+  <p>Moatly is not directed to children under the age of 13 (or 16 in certain jurisdictions). We do not knowingly collect personal information from children. If we become aware that we have done so, we will delete such information promptly. Contact us at <a href="mailto:info@getmoatly.com">info@getmoatly.com</a> if you believe we may have collected information from a child.</p>
+
+  <div class="divider"></div>
+
+  <h2>11. Financial Data Disclaimer</h2>
+  <p>Moatly displays financial data sourced from third-party providers for <strong>informational and educational purposes only</strong>. We do not guarantee the accuracy, completeness, or timeliness of any financial data. Nothing displayed in the App constitutes a buy or sell signal or a recommendation to purchase or dispose of any security. Financial data is not personalized financial advice.</p>
+
+  <div class="divider"></div>
+
+  <h2>12. AI and Automated Processing</h2>
+  <p>MoatlyAI uses artificial intelligence to generate stock analysis insights and respond to investing questions. AI-generated content may contain errors or inaccuracies, does not constitute investment advice or buy/sell signals, and is for educational and informational purposes only. Conversations with MoatlyAI may be processed by Anthropic's AI systems, subject to Anthropic's privacy policy. We do not use your data to make automated decisions with legal or similarly significant effects on you.</p>
+
+  <div class="divider"></div>
+
+  <h2>13. International Data Transfers</h2>
+  <p>Moatly is based in the State of Wyoming, United States. If you access the App from outside the United States, your information may be transferred to and processed in the United States where our servers and service providers are located. For EEA/UK users, we rely on Standard Contractual Clauses and other appropriate safeguards for international data transfers where required.</p>
+
+  <div class="divider"></div>
+
+  <h2>14. Apple and Google Specific Disclosures</h2>
+  <p>In accordance with Apple App Store requirements, the App collects the following data linked to your identity: contact information (email, name), usage data, purchases (subscription information), and identifiers (user ID). Crash data and performance data are collected but not linked to your identity. In accordance with Google Play's Data Safety requirements, users may request data deletion at any time by contacting <a href="mailto:info@getmoatly.com">info@getmoatly.com</a>.</p>
+
+  <div class="divider"></div>
+
+  <h2>15. Changes to This Policy</h2>
+  <p>We may update this Privacy Policy from time to time. We will notify you of material changes via in-app notification or email at least 7 days before changes take effect. Your continued use of the App after the effective date constitutes acceptance of the updated Policy.</p>
+
+  <div class="divider"></div>
+
+  <h2>16. Contact Us</h2>
+  <p>For questions, concerns, or privacy requests, please contact us. Use the subject line "Privacy Request" for all privacy-related inquiries. We aim to respond within 30 days.</p>
+  <p><strong>Moatly LLC</strong><br>
+  Email: <a href="mailto:info@getmoatly.com">info@getmoatly.com</a><br>
+  Website: <a href="https://getmoatly.com">getmoatly.com</a></p>
+
+</div>
+
+<footer>
+  <div class="footer-logo">Moatly</div>
+  <div class="footer-links">
+    <a href="/">Home</a>
+    <a href="/privacy.html">Privacy Policy</a>
+    <a href="/terms.html">Terms of Service</a>
+    <a href="mailto:info@getmoatly.com">Contact</a>
+  </div>
+  <div class="footer-copy">© 2026 Moatly LLC. Invest with Conviction.</div>
+</footer>
+
+</body>
+</html>
