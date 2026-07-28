@@ -5,136 +5,305 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>About — Moatly</title>
 <meta name="description" content="Why I built Moatly: a value investing app that answers the two questions I could never answer on my own — what is this business worth, and what should I pay for it?">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Poppins:wght@600&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --purple:#5b4fd4;
-    --pink:#c66ff5;
-    --ink:#1a1a2e;
-    --body:#4a4a5e;
-    --bg:#ffffff;
-    --soft:#f7f6fd;
-    --line:#e8e6f5;
-  }
-  *{margin:0;padding:0;box-sizing:border-box}
-  body{
-    font-family:'Poppins',-apple-system,BlinkMacSystemFont,sans-serif;
-    color:var(--body);background:var(--bg);
-    line-height:1.75;font-weight:300;-webkit-font-smoothing:antialiased;
-  }
-  .wrap{max-width:720px;margin:0 auto;padding:0 24px}
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-  /* ---------- Nav ----------
-     NOTE: brand-matched styling, not a copy of your index page's CSS.
-     If your existing nav rules differ, replace this block with the nav CSS
-     from index.html so both pages are pixel-identical. */
-  nav{
-    display:flex;align-items:center;justify-content:space-between;
-    max-width:1120px;margin:0 auto;padding:22px 24px;gap:24px;
-  }
-  .nav-logo{text-decoration:none;display:flex;align-items:center;gap:8px}
-  .logo-text{
-    font-size:24px;font-weight:700;letter-spacing:-.02em;
-    background:linear-gradient(90deg,var(--purple),var(--pink));
-    -webkit-background-clip:text;background-clip:text;color:transparent;
-  }
-  .nav-links{display:flex;align-items:center;gap:30px}
-  .nav-link{
-    text-decoration:none;color:var(--body);font-size:15px;font-weight:400;
-    transition:color .2s ease;white-space:nowrap;
-  }
-  .nav-link:hover{color:var(--purple)}
-  .nav-link.active{color:var(--purple);font-weight:600}
-  @media(max-width:760px){
-    nav{padding:16px;flex-wrap:wrap;justify-content:center}
-    .nav-links{gap:16px}
-    .nav-link{font-size:13px}
+  :root {
+    --ink: #0A0D12;
+    --ink-80: #0A0D12CC;
+    --ink-40: #0A0D1266;
+    --ink-10: #0A0D121A;
+    --paper: #F8F5F0;
+    --paper-dark: #EDE9E2;
+    --night: #080C18;
+    --night-2: #0E1525;
+    --night-3: #141D30;
+    --gold: #C8A96E;
+    --gold-light: #DEC28A;
+    --green: #2D6A4F;
+    --green-bright: #40916C;
+    --green-glow: #52B788;
+    --red: #BC4749;
+    --purple: #5b4ec7;
+    --purple-light: #7b70d4;
+    --purple-pale: rgba(91,78,199,0.10);
+    --white: #FFFFFF;
+    --radius: 16px;
+    --radius-sm: 10px;
   }
 
-  /* ---------- Hero ---------- */
-  .hero{padding:64px 0 56px;text-align:center}
-  .eyebrow{
-    font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
-    background:linear-gradient(90deg,var(--purple),var(--pink));
-    -webkit-background-clip:text;background-clip:text;color:transparent;
-    margin-bottom:18px;
-  }
-  h1{
-    font-size:clamp(34px,5.5vw,52px);font-weight:700;color:var(--ink);
-    line-height:1.15;letter-spacing:-.02em;margin-bottom:22px;
-  }
-  .lede{font-size:19px;font-weight:300;color:var(--body);max-width:560px;margin:0 auto}
+  html { scroll-behavior: smooth; }
 
-  /* ---------- Portrait ---------- */
-  .portrait{margin:52px auto 0;width:132px;height:132px;position:relative}
-  .portrait::before{
-    content:'';position:absolute;inset:-4px;border-radius:50%;
-    background:linear-gradient(135deg,var(--purple),var(--pink));
-  }
-  .portrait img{
-    position:relative;width:132px;height:132px;border-radius:50%;
-    object-fit:cover;object-position:center 30%;display:block;border:4px solid #fff;
-  }
-  .byline{margin-top:18px;text-align:center}
-  .byline .name{font-weight:600;color:var(--ink);font-size:17px}
-  .byline .role{font-size:14px;color:#8b8ba0}
-
-  /* ---------- Body ---------- */
-  .story{padding:16px 0 40px}
-  .story h2{
-    font-size:24px;font-weight:600;color:var(--ink);
-    margin:48px 0 16px;letter-spacing:-.01em;line-height:1.3;
-  }
-  .story p{margin-bottom:20px;font-size:17px}
-  .story strong{font-weight:600;color:var(--ink)}
-  .story em{font-style:italic}
-
-  .pull{
-    margin:44px 0;padding:28px 32px;background:var(--soft);
-    border-left:3px solid var(--purple);border-radius:0 12px 12px 0;
-  }
-  .pull p{
-    margin:0;font-size:19px;font-weight:500;color:var(--ink);
-    line-height:1.6;
+  body {
+    font-family: 'Syne', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
   }
 
-  /* ---------- Four Ms ---------- */
-  .ms{
-    display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
-    gap:14px;margin:36px 0;
+  /* ---------- NAV (matches index.html) ---------- */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 20px 40px;
+    display: flex; align-items: center; justify-content: space-between;
+    background: rgba(248, 245, 240, 0.88);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(10, 13, 18, 0.06);
   }
-  .m{
-    padding:20px;border:1px solid var(--line);border-radius:14px;background:#fff;
+
+  .nav-logo {
+    display: flex; align-items: center; gap: 10px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 36px; font-weight: 600; letter-spacing: -0.5px;
+    color: #5b4ec7; text-decoration: none;
   }
-  .m .label{
-    font-weight:600;color:var(--ink);font-size:15px;margin-bottom:6px;
-    display:flex;align-items:center;gap:8px;
+
+  .logo-text {
+    background: linear-gradient(180deg, #5b4fd4, #c66ff5);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: #5b4fd4;
   }
-  .m .dot{
-    width:8px;height:8px;border-radius:50%;
-    background:linear-gradient(135deg,var(--purple),var(--pink));flex:none;
+
+  .nav-links { display: flex; align-items: center; gap: 32px; }
+
+  .nav-link {
+    font-size: 14px; font-weight: 600; color: var(--ink-80);
+    text-decoration: none; transition: color 0.2s;
   }
-  .m p{margin:0;font-size:14px;line-height:1.6;color:var(--body)}
+  .nav-link:hover { color: var(--purple); }
+  .nav-link.active { color: var(--purple); }
+
+  .nav-cta {
+    background: var(--purple); color: var(--white);
+    border: none; padding: 10px 22px; border-radius: 100px;
+    font-family: 'Syne', sans-serif; font-size: 14px; font-weight: 600;
+    cursor: pointer; letter-spacing: 0.2px;
+    transition: transform 0.2s, background 0.2s, box-shadow 0.2s;
+    text-decoration: none; box-shadow: 0 4px 16px rgba(91,78,199,0.3);
+  }
+  .nav-cta:hover { background: var(--purple-light); transform: translateY(-1px); box-shadow: 0 6px 20px rgba(91,78,199,0.4); }
+
+  /* ---------- SHARED TYPE ---------- */
+  .section-label {
+    font-size: 12px; font-weight: 700; letter-spacing: 2px;
+    text-transform: uppercase; color: var(--purple); margin-bottom: 20px;
+  }
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(36px, 5vw, 62px); font-weight: 400;
+    line-height: 1.08; letter-spacing: -1px; color: var(--ink); margin-bottom: 20px;
+  }
+  .section-sub {
+    font-size: 17px; font-weight: 400;
+    color: var(--ink-80); line-height: 1.7; max-width: 560px;
+  }
+
+  /* ---------- ABOUT HERO ---------- */
+  .about-hero {
+    padding: 160px 40px 72px;
+    text-align: center; position: relative; overflow: hidden;
+  }
+  .about-hero-bg {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 900px 500px at 50% 10%, rgba(91,78,199,0.09) 0%, transparent 65%),
+      radial-gradient(ellipse 400px 300px at 15% 80%, rgba(200,169,110,0.05) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .about-hero-inner { position: relative; max-width: 780px; margin: 0 auto; }
+  .about-hero h1 {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(44px, 7vw, 82px); font-weight: 300;
+    line-height: 1.02; letter-spacing: -2px; color: var(--ink);
+    margin-bottom: 26px; animation: fadeUp 0.7s 0.1s ease both;
+  }
+  .about-hero h1 em { font-style: italic; color: var(--purple); }
+  .about-lede {
+    font-size: 18px; font-weight: 400; color: var(--ink-80);
+    line-height: 1.7; max-width: 560px; margin: 0 auto;
+    animation: fadeUp 0.7s 0.2s ease both;
+  }
+
+  .portrait-block { margin-top: 56px; animation: fadeUp 0.7s 0.3s ease both; }
+  .portrait {
+    width: 128px; height: 128px; margin: 0 auto; position: relative;
+  }
+  .portrait::before {
+    content: ''; position: absolute; inset: -3px; border-radius: 50%;
+    background: linear-gradient(180deg, #5b4fd4, #c66ff5);
+  }
+  .portrait img {
+    position: relative; width: 128px; height: 128px; border-radius: 50%;
+    object-fit: cover; object-position: center 28%; display: block;
+    border: 4px solid var(--paper);
+  }
+  .portrait-name {
+    margin-top: 18px; font-size: 15px; font-weight: 700; color: var(--ink);
+    letter-spacing: -0.2px;
+  }
+  .portrait-role { font-size: 13px; font-weight: 500; color: var(--ink-40); }
+
+  /* ---------- STORY ---------- */
+  .story-section { padding: 40px 40px 100px; }
+  .story { max-width: 680px; margin: 0 auto; }
+  .story h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 36px; font-weight: 500; letter-spacing: -0.7px;
+    color: var(--ink); line-height: 1.15;
+    margin: 64px 0 20px;
+  }
+  .story p {
+    font-size: 16px; font-weight: 400; color: var(--ink-80);
+    line-height: 1.8; margin-bottom: 22px;
+  }
+  .story p strong { font-weight: 700; color: var(--ink); }
+  .story p em { font-style: italic; }
+
+  .pull-quote {
+    margin: 52px 0; padding: 34px 40px;
+    background: var(--white); border: 1px solid var(--ink-10);
+    border-left: 3px solid var(--purple);
+    border-radius: 0 var(--radius) var(--radius) 0;
+  }
+  .pull-quote p {
+    margin: 0;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 27px; font-weight: 400; font-style: italic;
+    line-height: 1.35; letter-spacing: -0.5px; color: var(--ink);
+  }
+
+  /* ---------- 4M STRIP ---------- */
+  .four-m-strip {
+    display: grid; grid-template-columns: repeat(2, 1fr);
+    gap: 2px; background: var(--ink-10);
+    border-radius: var(--radius); overflow: hidden;
+    margin: 44px 0;
+  }
+  .fm { background: var(--paper); padding: 28px 26px; transition: background 0.3s; }
+  .fm:hover { background: var(--white); }
+  .fm-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 23px; font-weight: 500; letter-spacing: -0.4px;
+    margin-bottom: 8px;
+  }
+  .fm1 .fm-name { color: var(--purple); }
+  .fm2 .fm-name { color: #7B6539; }
+  .fm3 .fm-name { color: var(--green); }
+  .fm4 .fm-name { color: var(--red); }
+  .fm p { font-size: 14px; line-height: 1.65; color: var(--ink-80); margin: 0; }
+
+  /* ---------- MISSION (dark) ---------- */
+  .mission-section {
+    background: var(--night); color: var(--white);
+    padding: 110px 40px; position: relative; overflow: hidden;
+  }
+  .mission-section::before {
+    content: ''; position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 700px 500px at 75% 35%, rgba(91,78,199,0.14) 0%, transparent 65%),
+      radial-gradient(ellipse 400px 400px at 12% 85%, rgba(200,169,110,0.06) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .mission-inner { max-width: 860px; margin: 0 auto; position: relative; text-align: center; }
+  .mission-section .section-label { color: var(--purple-light); }
+  .mission-statement {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(30px, 4.2vw, 50px); font-weight: 300;
+    line-height: 1.25; letter-spacing: -1px; color: var(--white);
+    margin-bottom: 28px;
+  }
+  .mission-statement em { font-style: italic; color: var(--purple-light); }
+  .mission-support {
+    font-size: 16px; font-weight: 400; color: rgba(255,255,255,0.6);
+    line-height: 1.75; max-width: 560px; margin: 0 auto;
+  }
+
+  /* ---------- CORE VALUES ---------- */
+  .values-section { padding: 110px 40px; max-width: 1120px; margin: 0 auto; }
+  .values-intro { text-align: center; margin-bottom: 56px; }
+  .values-intro .section-sub { margin: 0 auto; }
+  .values-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 2px; background: var(--ink-10);
+    border-radius: var(--radius); overflow: hidden;
+  }
+  .value-card {
+    background: var(--paper); padding: 38px 32px;
+    transition: background 0.3s;
+  }
+  .value-card:hover { background: var(--white); }
+  .value-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 26px; font-weight: 300; font-style: italic;
+    color: var(--purple); opacity: 0.6; margin-bottom: 14px;
+  }
+  .value-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 25px; font-weight: 500; letter-spacing: -0.4px;
+    color: var(--ink); margin-bottom: 12px; line-height: 1.2;
+  }
+  .value-card p { font-size: 14px; font-weight: 400; color: var(--ink-80); line-height: 1.7; }
 
   /* ---------- CTA ---------- */
-  .cta{
-    margin:64px 0 88px;padding:44px 32px;text-align:center;border-radius:20px;
-    background:linear-gradient(135deg,var(--purple),var(--pink));color:#fff;
+  .cta-section { padding: 120px 40px; text-align: center; position: relative; overflow: hidden; }
+  .cta-bg {
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 700px 500px at 50% 50%, rgba(91,78,199,0.07) 0%, transparent 70%);
+    pointer-events: none;
   }
-  .cta h3{font-size:25px;font-weight:600;margin-bottom:12px;line-height:1.3}
-  .cta p{font-size:16px;opacity:.93;margin-bottom:26px;font-weight:300}
-  .btn{
-    display:inline-block;background:#fff;color:var(--purple);
-    padding:14px 34px;border-radius:999px;text-decoration:none;
-    font-weight:600;font-size:16px;transition:transform .2s ease;
+  .cta-inner { position: relative; }
+  .cta-section .section-title { max-width: 620px; margin: 0 auto 20px; }
+  .cta-section .section-sub { max-width: 460px; margin: 0 auto 40px; }
+  .cta-btn {
+    display: inline-block; padding: 15px 34px; background: var(--purple);
+    color: var(--white); border: none; border-radius: 100px;
+    font-family: 'Syne', sans-serif; font-size: 15px; font-weight: 700;
+    cursor: pointer; text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+    box-shadow: 0 6px 24px rgba(91,78,199,0.3);
   }
-  .btn:hover{transform:translateY(-2px)}
+  .cta-btn:hover { background: var(--purple-light); transform: translateY(-2px); box-shadow: 0 10px 32px rgba(91,78,199,0.4); }
 
-  @media(max-width:600px){
-    .hero{padding:40px 0}
-    .story p{font-size:16px}
-    .pull{padding:22px 24px}
-    .pull p{font-size:17px}
+  /* ---------- FOOTER ---------- */
+  footer {
+    background: var(--ink); color: rgba(255,255,255,0.4); padding: 48px 40px;
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 20px;
+  }
+  .footer-logo { font-size: 16px; font-weight: 700; color: var(--white); }
+  .footer-links { display: flex; gap: 28px; }
+  .footer-links a { font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.4); text-decoration: none; transition: color 0.2s; }
+  .footer-links a:hover { color: rgba(255,255,255,0.8); }
+  .footer-copy { font-size: 13px; }
+
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+  .fade-up { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+  @media (max-width: 768px) {
+    nav { padding: 16px 20px; }
+    .nav-links { display: none; }
+    .about-hero { padding: 110px 20px 48px; }
+    .story-section { padding: 20px 20px 72px; }
+    .story h2 { font-size: 29px; margin: 48px 0 16px; }
+    .story p { font-size: 15px; }
+    .pull-quote { padding: 26px 24px; margin: 40px 0; }
+    .pull-quote p { font-size: 22px; }
+    .four-m-strip { grid-template-columns: 1fr; }
+    .mission-section { padding: 72px 20px; }
+    .values-section { padding: 72px 20px; }
+    .values-grid { grid-template-columns: 1fr; }
+    .value-card { padding: 30px 24px; }
+    .cta-section { padding: 80px 20px; }
+    footer { padding: 32px 20px; flex-direction: column; align-items: flex-start; }
   }
 </style>
 </head>
@@ -151,26 +320,31 @@
     <a class="nav-link" href="index.html#learn">Learn</a>
     <a class="nav-link" href="index.html#pricing">Pricing</a>
     <a class="nav-link active" href="about.html">About</a>
+    <a class="nav-cta" href="https://apps.apple.com/us/app/moatly/id6768135444">Download</a>
   </div>
 </nav>
 
-<div class="wrap">
+<!-- HERO -->
+<section class="about-hero">
+  <div class="about-hero-bg"></div>
+  <div class="about-hero-inner">
+    <div class="section-label">About</div>
+    <h1>Why I built <em>Moatly</em></h1>
+    <p class="about-lede">I spent years trying to answer two questions about every stock I looked at. Moatly is what I built when I got tired of guessing.</p>
 
-  <section class="hero">
-    <div class="eyebrow">About</div>
-    <h1>Why I built Moatly</h1>
-    <p class="lede">I spent years trying to answer two questions about every stock I looked at. Moatly is what I built when I got tired of guessing.</p>
-
-    <div class="portrait">
-      <img src="tirthal.jpg" alt="Tirthal Patel, founder of Moatly">
+    <div class="portrait-block">
+      <div class="portrait">
+        <img src="tirthal.jpg" alt="Tirthal Patel, founder of Moatly">
+      </div>
+      <div class="portrait-name">Tirthal Patel</div>
+      <div class="portrait-role">Founder, Moatly</div>
     </div>
-    <div class="byline">
-      <div class="name">Tirthal Patel</div>
-      <div class="role">Founder, Moatly</div>
-    </div>
-  </section>
+  </div>
+</section>
 
-  <section class="story">
+<!-- STORY -->
+<section class="story-section">
+  <div class="story">
 
     <p>I started investing in 2020, in the middle of the pandemic, like a lot of people did. I bought companies that felt right. Some worked out. Some didn't.</p>
 
@@ -186,7 +360,7 @@
 
     <p>So I ended up where a lot of people end up: in a spreadsheet at midnight, building a valuation model I wasn't confident in, about a company I hadn't finished understanding. Then doing it again for the next company. And the next.</p>
 
-    <div class="pull">
+    <div class="pull-quote">
       <p>More data didn't make me a better investor. It just made me busier.</p>
     </div>
 
@@ -194,32 +368,34 @@
 
     <p>The frustrating part was that the thinking had already been figured out. Buffett, Munger, and Graham laid out the principles decades ago: buy businesses you understand, look for a durable competitive advantage, back honest management, and never pay more than the business is worth — with room to be wrong.</p>
 
+    <p>The ideas weren't the gap. The tooling was.</p>
+
     <p>What existed was either built for institutions and priced that way, stuck in a desktop era that assumed you had an hour and two monitors, or focused entirely on the numbers while ignoring the first question any good investor asks: <em>do I actually understand this business?</em></p>
 
-    <div class="ms">
-      <div class="m">
-        <div class="label"><span class="dot"></span>Meaning</div>
+    <div class="four-m-strip">
+      <div class="fm fm1">
+        <div class="fm-name">Meaning</div>
         <p>Does this business fit what you actually understand and care about?</p>
       </div>
-      <div class="m">
-        <div class="label"><span class="dot"></span>Moat</div>
+      <div class="fm fm2">
+        <div class="fm-name">Moat</div>
         <p>Can competitors erode this advantage, or does it hold?</p>
       </div>
-      <div class="m">
-        <div class="label"><span class="dot"></span>Management</div>
+      <div class="fm fm3">
+        <div class="fm-name">Management</div>
         <p>Are the people running it honest and good with capital?</p>
       </div>
-      <div class="m">
-        <div class="label"><span class="dot"></span>Margin of Safety</div>
+      <div class="fm fm4">
+        <div class="fm-name">Margin of Safety</div>
         <p>Is the price far enough below value to protect you?</p>
       </div>
     </div>
 
     <h2>So I built it</h2>
 
-    <p>I've spent close to two decades building enterprise platforms and streamlining processes, a good stretch of it in financial systems — payment and settlement modernization at an investment bank, a global financial data pipeline at a large tech company, platform work across insurance and healthcare. I'm an engineer by training: Cornell, Mechanical and Aerospace.</p>
+    <p>I've spent close to two decades building enterprise platforms as a technical program manager, a good stretch of it in financial systems — payment and settlement modernization at an investment bank, a global financial data pipeline at a large tech company, platform work across insurance and healthcare. I'm an engineer by training: Cornell, Mechanical and Aerospace.</p>
 
-    <p>Which is to say: I've spent my career making messy financial data reliable at scale.</p>
+    <p>Which is to say: I've spent my career making messy financial data reliable at scale. So I knew the problem I kept running into as an investor wasn't actually hard. Nobody had just bothered to solve it for individuals.</p>
 
     <p>Moatly is the tool I wanted for myself. All four questions answered in one place, on a phone. The financial data pulled and analyzed already, so the work you do is judgment instead of data entry. A buy price calculated with a margin of safety built in, so you know your number before emotion gets a vote. And an AI mentor that will answer a question at 11pm without charging five figures for the privilege.</p>
 
@@ -231,15 +407,81 @@
 
     <p>That's the whole idea. Less time gathering numbers. More time on the thinking that actually decides the outcome.</p>
 
-  </section>
+  </div>
+</section>
 
-  <div class="cta">
-    <h3>Invest with Conviction</h3>
-    <p>Score any stock with Moatly. Understand the Why and know what to pay before you buy.</p>
-    <a class="btn" href="https://apps.apple.com/us/app/moatly/id6768135444">Download Moatly</a>
+<!-- MISSION -->
+<section class="mission-section">
+  <div class="mission-inner">
+    <div class="section-label">Our Mission</div>
+    <p class="mission-statement">To make disciplined value investing available to <em>anyone willing to do the thinking</em> — not only those who can afford a terminal or a five-figure coaching program.</p>
+    <p class="mission-support">The principles that build long-term wealth aren't secret. They've been published for decades. What's been missing is a tool that puts them in your pocket, does the arithmetic, and leaves the judgment where it belongs: with you.</p>
+  </div>
+</section>
+
+<!-- CORE VALUES -->
+<section class="values-section">
+  <div class="values-intro">
+    <div class="section-label">Our Core Values</div>
+    <h2 class="section-title">What we won't compromise on</h2>
+    <p class="section-sub">Every decision about what Moatly does — and refuses to do — comes back to these.</p>
   </div>
 
-</div>
+  <div class="values-grid">
+    <div class="value-card">
+      <div class="value-num">01</div>
+      <h3>Clarity over volume</h3>
+      <p>Anyone can hand you a thousand metrics. We'd rather show you the handful that change the decision, and explain why they matter.</p>
+    </div>
+    <div class="value-card">
+      <div class="value-num">02</div>
+      <h3>Show the work</h3>
+      <p>Every score traces back to real financial statements. No black boxes, no proprietary magic you're asked to take on faith.</p>
+    </div>
+    <div class="value-card">
+      <div class="value-num">03</div>
+      <h3>Understanding comes first</h3>
+      <p>No score replaces knowing what a business actually does. Meaning is the first M for a reason — it's the one you can't outsource.</p>
+    </div>
+    <div class="value-card">
+      <div class="value-num">04</div>
+      <h3>Teach, don't tip</h3>
+      <p>We explain the reasoning so you can reach your own conclusion. Stock tips make you dependent. A framework makes you capable.</p>
+    </div>
+    <div class="value-card">
+      <div class="value-num">05</div>
+      <h3>Patience is a position</h3>
+      <p>Waiting for the right price is doing the work, not avoiding it. Moatly will tell you a great business isn't worth buying today.</p>
+    </div>
+    <div class="value-card">
+      <div class="value-num">06</div>
+      <h3>Honest about limits</h3>
+      <p>Valuations are estimates built on assumptions, and assumptions can be wrong. We'd rather say so than project false confidence.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="cta-bg"></div>
+  <div class="cta-inner">
+    <h2 class="section-title">Invest with <em style="font-style:italic;color:var(--purple)">conviction</em></h2>
+    <p class="section-sub">Score any stock on the 4M framework. Know what to pay before you buy.</p>
+    <a class="cta-btn" href="https://apps.apple.com/us/app/moatly/id6768135444">Download Moatly</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">moatly&trade;</div>
+  <div class="footer-links">
+    <a href="index.html#framework">The Framework</a>
+    <a href="index.html#moatlyai">MoatlyAI</a>
+    <a href="index.html#pricing">Pricing</a>
+    <a href="about.html">About</a>
+  </div>
+  <div class="footer-copy">&copy; 2026 Moatly LLC</div>
+</footer>
 
 </body>
 </html>
