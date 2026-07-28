@@ -106,6 +106,22 @@
   }
   .nav-cta:hover { background: var(--purple-light); transform: translateY(-1px); box-shadow: 0 6px 20px rgba(91,78,199,0.4); }
 
+/* ---------- HAMBURGER (mobile only) ---------- */
+  .nav-toggle {
+    display: none;
+    background: none; border: none; cursor: pointer;
+    width: 44px; height: 44px; padding: 10px;
+    flex-direction: column; justify-content: center; gap: 5px;
+  }
+  .nav-toggle span {
+    display: block; width: 24px; height: 2px; border-radius: 2px;
+    background: var(--ink);
+    transition: transform 0.3s ease, opacity 0.2s ease;
+  }
+  .nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav-toggle.open span:nth-child(2) { opacity: 0; }
+  .nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
   .hero {
     min-height: 100vh;
     display: flex; flex-direction: column; align-items: center; justify-content: center;
@@ -694,7 +710,30 @@
 
   @media (max-width: 768px) {
     nav { padding: 16px 20px; }
-    .nav-links { display: none; }
+    .nav-toggle { display: flex; }
+
+    .nav-links {
+      position: absolute; top: 100%; left: 0; right: 0;
+      flex-direction: column; align-items: stretch; gap: 0;
+      background: rgba(248, 245, 240, 0.97);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(10, 13, 18, 0.08);
+      padding: 8px 20px 20px;
+      box-shadow: 0 20px 40px rgba(10,13,18,0.08);
+      transform: translateY(-12px);
+      opacity: 0; visibility: hidden; pointer-events: none;
+      transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s;
+    }
+    .nav-links.open {
+      opacity: 1; visibility: visible; pointer-events: auto;
+      transform: translateY(0);
+    }
+    .nav-link {
+      padding: 15px 4px; font-size: 16px;
+      border-bottom: 1px solid rgba(10, 13, 18, 0.06);
+    }
+    .nav-cta { margin-top: 18px; text-align: center; padding: 14px 22px; font-size: 15px; }
     .hero { padding: 100px 20px 60px; }
     .four-m-section, .steps-section, .ai-section, .learn-section, .pricing-section { padding: 80px 20px; }
     .four-m-grid, .testimonial-grid, .pricing-grid { grid-template-columns: 1fr; }
@@ -806,7 +845,10 @@
 
     <span class="logo-text">moatly&trade;</span>
   </a>
-  <div class="nav-links">
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="nav-links" id="navLinks">
     <a class="nav-link" href="#framework">The Framework</a>
     <a class="nav-link" href="#moatlyai">MoatlyAI</a>
     <a class="nav-link" href="#learn">Learn</a>
@@ -1506,6 +1548,43 @@
   }
 
   document.getElementById('notify-email').addEventListener('keydown', e => { if (e.key === 'Enter') handleNotifySignup(); });
+</script>
+<script>
+  (function () {
+    var toggle = document.getElementById('navToggle');
+    var links  = document.getElementById('navLinks');
+    if (!toggle || !links) return;
+
+    function setOpen(open) {
+      links.classList.toggle('open', open);
+      toggle.classList.toggle('open', open);
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    }
+
+    toggle.addEventListener('click', function (e) {
+      e.stopPropagation();
+      setOpen(!links.classList.contains('open'));
+    });
+
+    links.addEventListener('click', function (e) {
+      if (e.target.tagName === 'A') setOpen(false);
+    });
+
+    document.addEventListener('click', function (e) {
+      if (links.classList.contains('open') &&
+          !links.contains(e.target) && !toggle.contains(e.target)) {
+        setOpen(false);
+      }
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') setOpen(false);
+    });
+
+    window.addEventListener('resize', function () {
+      if (window.innerWidth > 768) setOpen(false);
+    });
+  })();
 </script>
 </body>
 </html>
