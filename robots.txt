@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /reset-password/
+
+Sitemap: https://getmoatly.com/sitemap.xml
