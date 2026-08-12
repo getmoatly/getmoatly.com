@@ -44,6 +44,8 @@ letter-spacing:-1.2px}
 .pr-n{font-size:12px;color:var(--ink-40);margin-top:8px}
 .ai{background:var(--white);border:1px solid var(--ink-10);border-left:3px solid var(--purple);
 border-radius:0 var(--radius) var(--radius) 0;padding:30px 34px;margin:36px 0}
+.ai-label{font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;
+color:var(--purple);margin-bottom:16px}
 .ai p:last-child{margin-bottom:0}
 table{width:100%;border-collapse:collapse;font-size:14px;margin-bottom:20px}
 th{text-align:left;font-size:12px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;
