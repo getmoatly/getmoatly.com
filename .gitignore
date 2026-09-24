@@ -1,0 +1,5 @@
+
+# Full-resolution phone screenshots kept locally; the web copies in images/
+# are resized and palette-reduced. Not needed in the repo.
+images/_full/
+images/_trim_*
