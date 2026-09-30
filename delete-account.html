@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy — Moatly</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --ink: #0A0D12; --ink-80: #0A0D12CC; --ink-40: #0A0D1266; --ink-10: #0A0D121A;
+    --paper: #F8F5F0; --paper-dark: #EDE9E2; --night: #080C18;
+    --purple: #5b4ec7; --purple-light: #7b70d4; --purple-pale: rgba(91,78,199,0.10);
+    --gold: #C8A96E; --white: #FFFFFF;
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Syne', sans-serif; background: var(--paper); color: var(--ink); -webkit-font-smoothing: antialiased; }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    padding: 20px 40px; display: flex; align-items: center; justify-content: space-between;
+    background: rgba(248,245,240,0.88); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(10,13,18,0.06);
+  }
+  .nav-logo { display: flex; align-items: center; gap: 10px; font-size: 20px; font-weight: 700; letter-spacing: -0.5px; color: var(--ink); text-decoration: none; }
+  .nav-logo-icon { width: 32px; height: 32px; background: var(--purple); border-radius: 8px; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 14px rgba(91,78,199,0.35); }
+  .nav-logo-icon svg { width: 18px; height: 18px; }
+  .nav-links { display: flex; align-items: center; gap: 32px; }
+  .nav-link { font-size: 14px; font-weight: 600; color: var(--ink-80); text-decoration: none; transition: color 0.2s; }
+  .nav-link:hover { color: var(--purple); }
+  .nav-cta { background: var(--purple); color: var(--white); border: none; padding: 10px 22px; border-radius: 100px; font-family: 'Syne', sans-serif; font-size: 14px; font-weight: 600; cursor: pointer; text-decoration: none; box-shadow: 0 4px 16px rgba(91,78,199,0.3); transition: background 0.2s; }
+  .nav-cta:hover { background: var(--purple-light); }
+
+  /* PAGE HEADER */
+  .page-header { padding: 140px 40px 60px; text-align: center; border-bottom: 1px solid var(--paper-dark); }
+  .page-header .label { font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--purple); display: block; margin-bottom: 16px; }
+  .page-header h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(42px, 6vw, 72px); font-weight: 400; letter-spacing: -1.5px; line-height: 1.05; color: var(--ink); margin-bottom: 16px; }
+  .page-header .meta { font-size: 14px; font-weight: 500; color: var(--ink-40); }
+
+  /* CONTENT */
+  .content { max-width: 720px; margin: 0 auto; padding: 72px 40px 120px; }
+  .content h2 { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 500; letter-spacing: -0.5px; color: var(--ink); margin: 52px 0 16px; }
+  .content h2:first-child { margin-top: 0; }
+  .content h3 { font-size: 15px; font-weight: 700; color: var(--ink); margin: 28px 0 10px; }
+  .content p { font-size: 15px; font-weight: 400; color: var(--ink-80); line-height: 1.8; margin-bottom: 16px; }
+  .content ul { padding-left: 20px; margin-bottom: 16px; }
+  .content li { font-size: 15px; color: var(--ink-80); line-height: 1.8; margin-bottom: 6px; }
+  .content a { color: var(--purple); text-decoration: underline; }
+  .content strong { color: var(--ink); font-weight: 700; }
+  .divider { height: 1px; background: var(--paper-dark); margin: 52px 0; }
+  .disclaimer-box { background: var(--white); border: 1.5px solid var(--paper-dark); border-left: 4px solid var(--purple); border-radius: 0 12px 12px 0; padding: 24px 28px; margin: 24px 0; }
+  .disclaimer-box p { margin-bottom: 10px; }
+  .disclaimer-box p:last-child { margin-bottom: 0; }
+
+  /* FOOTER */
+  footer { background: var(--ink); padding: 48px 40px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px; }
+  .footer-logo { font-size: 16px; font-weight: 700; color: var(--white); }
+  .footer-links { display: flex; gap: 28px; }
+  .footer-links a { font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.4); text-decoration: none; transition: color 0.2s; }
+  .footer-links a:hover { color: rgba(255,255,255,0.8); }
+  .footer-copy { font-size: 13px; color: rgba(255,255,255,0.4); }
+
+  @media (max-width: 768px) {
+    nav { padding: 16px 20px; }
+    .nav-links { display: none; }
+    .page-header { padding: 120px 24px 48px; }
+    .content { padding: 48px 24px 80px; }
+    footer { padding: 32px 20px; flex-direction: column; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="/">
+    <div class="nav-logo-icon">
+      <svg viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M9 2L14 6V12L9 16L4 12V6L9 2Z" stroke="#FFFFFF" stroke-width="1.5" stroke-linejoin="round"/>
+        <path d="M9 5L12 7.5V11L9 13.5L6 11V7.5L9 5Z" fill="#FFFFFF" opacity="0.35"/>
+      </svg>
+    </div>
+    Moatly
+  </a>
+  <div class="nav-links">
+    <a class="nav-link" href="/#framework">The Framework</a>
+    <a class="nav-link" href="/#moatlyai">MoatlyAI</a>
+    <a class="nav-link" href="/#pricing">Pricing</a>
+  </div>
+  <a class="nav-cta" href="/#waitlist">Get Early Access</a>
+</nav>
+
+<div class="page-header">
+  <span class="label">Legal</span>
+  <h1>Delete Your Moatly Account</h1>
+  <p class="meta">Last Updated: September 30, 2026</p>
+</div>
+
+<div class="content">
+
+<p>This page explains how to delete your <strong>Moatly</strong> account and the
+data associated with it. Moatly is published by <strong>Moatly LLC</strong>.</p>
+
+<h2>How to request deletion</h2>
+
+<p>Choose either method. Both delete the same data.</p>
+
+<h3>From inside the app</h3>
+<ul>
+  <li>Open Moatly and go to <strong>Settings</strong></li>
+  <li>Tap <strong>Billing &amp; Payments</strong></li>
+  <li>Scroll to <strong>Delete Account</strong> and tap it</li>
+  <li>Confirm when prompted</li>
+</ul>
+
+<h3>By email</h3>
+<ul>
+  <li>Email <a href="mailto:info@getmoatly.com?subject=Delete%20My%20Account">info@getmoatly.com</a>
+      from the address registered to your account</li>
+  <li>Use the subject line <strong>Delete My Account</strong></li>
+  <li>We verify the request and complete it within <strong>30 days</strong></li>
+</ul>
+
+<div class="disclaimer-box">
+  <p><strong>Deleting your Moatly account does not cancel your subscription.</strong>
+  Subscriptions are billed by Apple or Google, not by Moatly, and must be cancelled
+  separately in the App Store or Google Play subscription settings. Delete your
+  account before cancelling and you may continue to be charged.</p>
+</div>
+
+<h2>What is deleted</h2>
+
+<p>The following are permanently removed and cannot be recovered:</p>
+
+<ul>
+  <li>Your account and login credentials</li>
+  <li>Email address, name and phone number</li>
+  <li>Your Circle of Competence profile — passion, talent and money tags</li>
+  <li>Your watchlist and its value-zone alert settings</li>
+  <li>Conviction check answers and Meaning scores</li>
+  <li>Scenario modelling inputs</li>
+  <li>Your MoatlyAI conversation history</li>
+  <li>Push notification tokens for your devices</li>
+</ul>
+
+<h2>What is kept, and for how long</h2>
+
+<p>A small amount of data is retained after deletion, either because the law
+requires it or because it can no longer identify you:</p>
+
+<ul>
+  <li><strong>Subscription and transaction records</strong> — retained up to
+      <strong>7 years</strong> for financial, tax and legal compliance. Required
+      by law; cannot be deleted on request.</li>
+  <li><strong>Anonymised, aggregated usage statistics</strong> — retained
+      indefinitely. These carry no identifiers and cannot be traced back to you.</li>
+  <li><strong>Crash and performance logs</strong> — retained up to
+      <strong>90 days</strong>, then deleted.</li>
+</ul>
+
+<p>Company scores, valuations and financial data are not personal data. They are
+shared across all users and are unaffected by deleting your account.</p>
+
+<h2>Deleting some data without closing your account</h2>
+
+<p>You do not have to delete your whole account to remove specific data. You can
+clear your watchlist, conviction answers or Circle of Competence profile from
+within the app at any time, or email
+<a href="mailto:info@getmoatly.com?subject=Delete%20Specific%20Data">info@getmoatly.com</a>
+describing what you want removed.</p>
+
+<h2>Questions</h2>
+
+<p><strong>Moatly LLC</strong><br>
+Email: <a href="mailto:info@getmoatly.com">info@getmoatly.com</a><br>
+See also our <a href="/privacy.html">Privacy Policy</a>.</p>
+
+</div>
+
+<footer>
+  <div class="footer-logo">Moatly</div>
+  <div class="footer-links">
+    <a href="/">Home</a>
+    <a href="/privacy.html">Privacy Policy</a>
+    <a href="/terms.html">Terms of Service</a>
+    <a href="mailto:info@getmoatly.com">Contact</a>
+  </div>
+  <div class="footer-copy">© 2026 Moatly LLC. Invest with Conviction.</div>
+</footer>
+
+</body>
+</html>
