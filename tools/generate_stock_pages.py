@@ -403,6 +403,64 @@ def build_page(r, rows):
 
 # ── sitemap ───────────────────────────────────────────────────────────────────
 
+def write_index(rows):
+    """Rewrite stocks.html, the hub page.
+
+    Without this the 690 generated pages are reachable only from the sitemap
+    and from each other's peer tables — there is no path to them from the site
+    itself, which is how a corpus this size ends up crawled slowly and ranked
+    badly. The hub had been hand-maintained and still listed the original 20.
+
+    Sorted by market cap within each sector rather than alphabetically, so the
+    names a reader recognises are the ones they see first.
+    """
+    path = os.path.join(ROOT, "stocks.html")
+    if not os.path.exists(path):
+        print("  stocks.html: not found, skipping")
+        return 0
+    with open(path) as f:
+        s = f.read()
+
+    by_sector = {}
+    for r in rows:
+        by_sector.setdefault(r.get("sector") or "Other", []).append(r)
+
+    out = []
+    for sector in sorted(by_sector):
+        items = sorted(by_sector[sector],
+                       key=lambda r: -float(r.get("market_cap") or 0))
+        out.append(f"<h2>{esc(sector)}</h2>")
+        out.append('<div class="idx">')
+        for r in items:
+            out.append(f'<a href="/stock/{slug_for(r["ticker"])}/">'
+                       f'<b>{esc(r["ticker"])}</b>'
+                       f'<span>Moat {r.get("moat_score")}</span></a>')
+        out.append("</div>")
+    block = "\n".join(out)
+
+    # Replace everything between the intro paragraph and the footer.
+    start = s.find("<h2>")
+    end = s.find("</div>\n<footer")
+    if end < 0:
+        end = s.rfind("</div>", 0, s.find("<footer"))
+    if start < 0 or end < 0:
+        print("  stocks.html: anchors not found, left untouched")
+        return 0
+    s = s[:start] + block + "\n" + s[end + len("</div>"):]
+
+    # The count in the intro and the meta description.
+    n = len(rows)
+    s = re.sub(r"\b\d+ companies, each scored",
+               f"{n} companies, each scored", s)
+    s = re.sub(r"margin of safety scores for \d+ companies",
+               f"margin of safety scores for {n} companies", s)
+
+    if not DRY:
+        with open(path, "w") as f:
+            f.write(s)
+    return n
+
+
 def write_sitemap(slugs):
     today = date.today().isoformat()
     statics = ["", "about.html", "faq.html", "stocks.html",
@@ -455,9 +513,11 @@ def main():
             created += 1
 
     n = write_sitemap(all_slugs)
+    listed = write_index(full)
     verb = "would write" if DRY else "wrote"
     print(f"\ncreated {created}, rebuilt {rebuilt}, skipped {skipped} existing")
     print(f"{verb} sitemap.xml with {n} urls")
+    print(f"{verb} stocks.html listing {listed} companies")
     if skipped and not OVERWRITE:
         print("  (existing pages keep their hand-written prose; "
               "--overwrite replaces it with derived prose)")
