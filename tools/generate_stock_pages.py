@@ -53,6 +53,21 @@ APP_STORE = "https://apps.apple.com/us/app/moatly/id6768135444"
 PLAY_STORE = "https://play.google.com/store/apps/details?id=com.getmoatly.app"
 SUBSTACK = "https://tirthal.substack.com/subscribe"
 
+# Flip to True the day the production release is approved, then re-run.
+#
+# Publishing the store listing is not the same as publishing the app. The
+# listing went live on 1 Oct with the closed-testing track, which made the Play
+# URL load for testers and 404 for everyone else. Linking to it then put a dead
+# link on 714 pages.
+ANDROID_LIVE = False
+
+STORE_CTA = (
+    f'<a class="btn" href="{APP_STORE}">Get Moatly on iOS</a> &nbsp; '
+    f'<a class="btn" href="{PLAY_STORE}">Get Moatly on Android</a>'
+    if ANDROID_LIVE else
+    f'<a class="btn" href="{APP_STORE}">Get Moatly free on iOS</a>'
+)
+
 
 # ── formatting ────────────────────────────────────────────────────────────────
 
@@ -383,7 +398,7 @@ def build_page(r, rows):
 </div>
 <h2>Run your own assumptions</h2>
 <p>Every number above is built on assumptions that can be changed. In Moatly you can move the growth rate, the exit multiple and the margin of safety and watch every figure recalculate, so you are testing your own view of {esc(name)} rather than accepting ours.</p>
-<p><a class="btn" href="{APP_STORE}">Get Moatly on iOS</a> &nbsp; <a class="btn" href="{PLAY_STORE}">Get Moatly on Android</a></p>
+<p>{STORE_CTA}</p>
 <div class="disc">Not investment advice. Estimates only, built on stated assumptions that could be wrong. Figures are drawn from reported financial statements and were current as of the date shown. Do your own research.</div>
 </div>
 <footer>
