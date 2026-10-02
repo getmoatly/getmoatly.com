@@ -59,7 +59,7 @@ SUBSTACK = "https://tirthal.substack.com/subscribe"
 # listing went live on 1 Oct with the closed-testing track, which made the Play
 # URL load for testers and 404 for everyone else. Linking to it then put a dead
 # link on 714 pages.
-ANDROID_LIVE = False
+ANDROID_LIVE = True
 
 STORE_CTA = (
     f'<a class="btn" href="{APP_STORE}">Get Moatly on iOS</a> &nbsp; '
