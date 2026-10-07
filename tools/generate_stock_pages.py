@@ -61,11 +61,27 @@ SUBSTACK = "https://tirthal.substack.com/subscribe"
 # link on 714 pages.
 ANDROID_LIVE = True
 
+# Official store badges, served from the site root so every /stock/<slug>/
+# page can reach them with one absolute path. Apple's is the SVG lifted from
+# the home page; Google's is their colour PNG at 2x the 52px display height.
+# Both vendors require their own artwork rather than a styled text link.
+_IOS_BADGE = (
+    f'<a href="{APP_STORE}" target="_blank" rel="noopener" '
+    f'aria-label="Download Moatly on the App Store">'
+    f'<img src="/app-store-badge.svg" alt="Download on the App Store" '
+    f'width="156" height="52"></a>'
+)
+_PLAY_BADGE = (
+    f'<a href="{PLAY_STORE}" target="_blank" rel="noopener" '
+    f'aria-label="Get Moatly on Google Play">'
+    f'<img src="/google-play-badge.png" alt="Get it on Google Play" '
+    f'width="175" height="52"></a>'
+)
+
 STORE_CTA = (
-    f'<a class="btn" href="{APP_STORE}">Get Moatly on iOS</a> &nbsp; '
-    f'<a class="btn" href="{PLAY_STORE}">Get Moatly on Android</a>'
+    f'<span class="store-badges">{_IOS_BADGE}{_PLAY_BADGE}</span>'
     if ANDROID_LIVE else
-    f'<a class="btn" href="{APP_STORE}">Get Moatly free on iOS</a>'
+    f'<span class="store-badges">{_IOS_BADGE}</span>'
 )
 
 

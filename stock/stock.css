@@ -81,3 +81,7 @@ align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px}
 .nav-links{display:none}.wrap{padding:100px 20px 60px}
 .scores{grid-template-columns:repeat(2,1fr)}.prices{grid-template-columns:repeat(2,1fr)}
 .ai{padding:24px 22px}footer{padding:32px 20px;flex-direction:column;align-items:flex-start}}
+.store-badges{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin:0 0 4px}
+.store-badges a{display:inline-block;transition:transform .2s ease,opacity .2s ease}
+.store-badges a:hover{transform:translateY(-2px);opacity:.88}
+.store-badges img{height:52px;width:auto;display:block}
