@@ -360,7 +360,7 @@ def build_page(r, rows):
     <a class="nav-link" href="/index.html#pricing">Pricing</a>
     <a class="nav-link" href="/about.html">About</a>
     <a class="nav-link" href="/faq.html">FAQ</a>
-    <a class="nav-cta" href="{APP_STORE}">Download</a>
+    <a class="nav-cta" href="/index.html#waitlist">Download</a>
   </div>
 </nav>
 
