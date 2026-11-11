@@ -104,8 +104,10 @@ def mult(v, dp=1):
 
 
 def score_class(v):
-    # Matches the existing pages: hi >= 80, mid >= 40, lo below.
-    return "hi" if v >= 80 else ("mid" if v >= 40 else "lo")
+    # Must match score_class() in generate_stock_pages.py: hi >= 70, mid >= 40.
+    # These two disagreed (80 vs 70) and flipped 70-79 between green and amber
+    # on every alternating run. Change both together or not at all.
+    return "hi" if v >= 70 else ("mid" if v >= 40 else "lo")
 
 
 def as_of(scored_at):

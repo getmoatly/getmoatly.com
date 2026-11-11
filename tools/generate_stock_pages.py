@@ -382,7 +382,7 @@ def build_page(r, rows):
 <div class="pr"><div class="pr-l">Payback time price</div><div class="pr-v">{money(r.get('pbt_price'))}</div><div class="pr-n">Eight years of free cash flow</div></div>
 </div>
 <div class="ai">
-<div class="ai-label">What the numbers say</div>
+<div class="ai-label">Moatly AI Insight</div>
 <p>{esc(para_business(r))}</p>
 <p>{esc(para_price(r))}</p>
 <p>{esc(para_verdict(r))}</p>
