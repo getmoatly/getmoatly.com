@@ -6,3 +6,5 @@
 __pycache__/
 images/_full/
 images/_trim_*
+tools/scores.csv
+tools/scores_agg.csv
