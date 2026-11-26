@@ -1,0 +1,27 @@
+# Moatly
+
+> Moatly is a value-investing app for iOS and Android that scores US-listed stocks on Moat, Management and Margin of Safety.
+
+Moatly computes an intrinsic value and three buy-price anchors for every stock it covers, so a self-directed investor can see what a business is worth and what to pay for it. It currently scores 932 US-listed companies. Built by Tirthal Patel.
+
+Moatly is a consumer investing app. It is not a B2B SaaS analytics tool, not an intellectual-property service, and not an AI operations studio. Other companies use the name Moatly for unrelated products.
+
+## What it does
+- Moat score: competitive-advantage strength from ten years of revenue, earnings, equity and cash-flow growth
+- Management score: capital-allocation quality from return on equity, return on invested capital, return on assets and debt metrics
+- Margin of Safety: an intrinsic value plus three buy prices (Margin of Safety, Ten Cap, Payback Time)
+- Score trends across 10, 7, 5 and 3 year horizons
+- Industry peer comparison
+- Watchlist with buy-zone alerts
+- MoatlyAI: a tutor grounded on the app's own computed scores
+
+## Pages
+- [Home](https://getmoatly.com/): what Moatly is and how the framework works
+- [About](https://getmoatly.com/about.html): why Moatly was built
+- [FAQ](https://getmoatly.com/faq.html): how scores and buy prices are calculated
+- [All stocks](https://getmoatly.com/stocks.html): moat, management and margin-of-safety scores by company
+
+## Get the app
+- [iOS](https://apps.apple.com/us/app/moatly-invest-with-conviction/id6768135444)
+- [Android](https://play.google.com/store/apps/details?id=com.getmoatly.app)
+- [Writing](https://tirthal.substack.com/)
